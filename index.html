@@ -115,7 +115,7 @@
             color: var(--c-text-secondary); font-size: 13px; font-weight: 500; font-family: inherit;
             cursor: pointer; transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
         }
-        .filter-badge svg { width: 14px; height: 14px; flex-shrink: 0; }
+        .filter-badge svg { height: 14px; flex-shrink: 0; }
         .filter-badge[aria-pressed="true"] { background: var(--c-accent); color: #fff; border-color: var(--c-accent); }
         .filter-badge[aria-pressed="true"] svg { stroke: #fff; }
         .filter-badge[data-filter="walking"][aria-pressed="true"] { background: var(--c-green); border-color: var(--c-green); }
@@ -239,11 +239,11 @@
 
             <div class="filter-bar" role="group" aria-label="Filter directions">
                 <button class="filter-badge" data-filter="driving" aria-pressed="false" type="button">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6.5 17a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm11 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM5 15.5l-.8-3.2a2 2 0 011.94-2.5h11.72a2 2 0 011.94 2.5L19 15.5M5 15.5h14M7 9.8l1-3.3h8l1 3.3"/></svg>
+                    <svg viewBox="0 0 44 24" width="22" height="14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><g transform="translate(0,0)"><path d="M9.007 17a2 2 0 1 1-4 0a2 2 0 0 1 4 0Zm10 0a2 2 0 1 1-4 0a2 2 0 0 1 4 0Z"/><path stroke-linecap="round" d="M2.007 10h16m-16 0c0 .78-.02 3.04.004 5.26c.036.72.156 1.32 2.998 1.74m-3.002-7c.216-1.74 1.155-3.8 1.635-4.58M9.007 10V5m5.99 12H9.002M2.023 5H12.24s.54 0 1.02.048c.899.084 1.654.492 2.41 1.512c.8 1.08 1.415 2.448 2.23 3.18c1.355 1.216 3.933.84 4.077 3.42c.036 1.32.036 2.76-.024 3c-.096.707-.641.822-1.319.84c-.588.016-1.297-.028-1.643 0"/></g><g transform="translate(22,0)"><circle cx="19.5" cy="16.5" r="2.5"/><circle cx="4.5" cy="16.5" r="2.5"/><path stroke-linecap="round" stroke-linejoin="round" d="M20.235 7.87c1.281 1.559 1.727 3.042 1.764 3.826a5.3 5.3 0 0 0-2.217-.479c-2.445 0-4.64 1.626-5.164 3.792c-.126.518-.188.777-.324.884s-.356.107-.795.107h-2.878c-.443 0-.664 0-.8-.108c-.137-.11-.197-.367-.316-.883c-.496-2.138-2.508-3.997-4.603-3.84c-.211.017-.317.025-.39.008c-.071-.016-.144-.057-.29-.14c-.421-.237-.851-.463-1.264-.714A2 2 0 0 1 2 8.683c-.013-.384.207-.764.652-.66l6.42 1.511c.483.114.724.17.931.132s.462-.212.97-.56c1.288-.88 3.33-1.713 5.365-.978c.557.201.836.302.994.307c.16.005.392-.063.857-.198a9.5 9.5 0 0 1 2.045-.367m0 0c-.802-.978-1.934-1.985-3.5-2.87"/></g></svg>
                     <span data-i18n="filter-driver">Driver</span>
                 </button>
                 <button class="filter-badge" data-filter="walking" aria-pressed="false" type="button">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="13" cy="4.5" r="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 10.5l2 2.5 3-1.5M10.5 10.5L8 14l2.5 1M10.5 10.5l-1-3.5M10.5 15l-1 6m3.5-6l1.5 6"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><g stroke-linecap="round" stroke-linejoin="round"><path d="m6 12.5l1.738-2.607a2 2 0 0 1 .672-.627l2.189-1.251a1.94 1.94 0 0 1 1.83-.05c.656.328 1.037 1.021 1.317 1.7C14.206 10.781 15.398 12 18 12"/><path d="m13 9l-1.223 5.595M10.5 8.5l-.725 3.265a2 2 0 0 0 .724 2.012L14 16.5l1.5 4.5m-6-5L9 17.5l-2.5 3m8.5-16a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0"/></g></svg>
                     <span data-i18n="filter-pedestrian">Pedestrian</span>
                 </button>
             </div>
