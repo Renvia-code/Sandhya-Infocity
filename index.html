@@ -6,12 +6,12 @@
     <meta name="description" content="Sandhya Infocity back gate entrance guide with directions, maps, and security contacts.">
     <meta name="theme-color" content="#ffffff">
     <meta name="robots" content="noindex, nofollow">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' https://gc.zgo.at; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://renvia-code.goatcounter.com; connect-src 'self' https://renvia-code.goatcounter.com https://script.google.com https://script.googleusercontent.com; base-uri 'none'; form-action 'none'">
 
     <meta property="og:title" content="Sandhya Infocity – Entrance Guide">
     <meta property="og:description" content="Navigate to the nearest back gate entrance at Sandhya Infocity IT Park.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://renvia-code.github.io/Sandhya-Infocity/entrance-photo.png">
+    <meta property="og:image" content="https://renvia-code.github.io/Sandhya-Infocity/entrance-photo.jpg">
     <meta property="og:url" content="https://renvia-code.github.io/Sandhya-Infocity/">
 
     <title>Sandhya Infocity &ndash; Entrance Guide</title>
@@ -19,6 +19,8 @@
     <link rel="icon" type="image/png" href="sandhya-infocity.png">
     <link rel="apple-touch-icon" href="sandhya-infocity.png">
     <link rel="canonical" href="https://renvia-code.github.io/Sandhya-Infocity/">
+
+    <script data-goatcounter="https://renvia-code.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -214,7 +216,7 @@
     <div class="page">
 
         <div class="hero">
-            <img src="entrance-photo.png" alt="Sandhya Infocity main entrance" loading="eager" fetchpriority="high" width="662" height="420">
+            <img src="entrance-photo.jpg" alt="Sandhya Infocity main entrance" loading="eager" fetchpriority="high" width="662" height="420">
         </div>
 
         <header class="header">
@@ -248,7 +250,7 @@
             <a href="https://www.google.com/maps/dir/?api=1&destination=12.847699,80.223052&travelmode=driving"
                class="entrance-card" data-track="entrance1" data-category="driving" target="_blank" rel="noopener noreferrer">
                 <div class="entrance-card-image">
-                    <img src="back-entrance-1.png" alt="Back Entrance 1, lane before main gate near Mount Litera Zee School" loading="eager" width="1246" height="674">
+                    <img src="back-entrance-1.jpg" alt="Back Entrance 1, lane before main gate near Mount Litera Zee School" loading="eager" width="1246" height="674">
                     <span class="card-badge" data-i18n="badge-entrance1">Entrance 1</span>
                 </div>
                 <div class="entrance-card-body">
@@ -267,7 +269,7 @@
             <a href="https://www.google.com/maps/dir/?api=1&destination=12.852392,80.224223&travelmode=driving"
                class="entrance-card" data-track="entrance2" data-category="driving" target="_blank" rel="noopener noreferrer">
                 <div class="entrance-card-image">
-                    <img src="back-entrance-2.png" alt="Back Entrance 2, lane past main gate near Geetham Restaurant" loading="lazy" width="652" height="386">
+                    <img src="back-entrance-2.jpg" alt="Back Entrance 2, lane past main gate near Geetham Restaurant" loading="lazy" width="652" height="386">
                     <span class="card-badge" data-i18n="badge-entrance2">Entrance 2</span>
                 </div>
                 <div class="entrance-card-body">
@@ -287,7 +289,7 @@
                 <a href="https://www.google.com/maps/dir/?api=1&destination=12.850022,80.226467&travelmode=driving"
                    class="entrance-card-link" data-track="vehicle_pickup" target="_blank" rel="noopener noreferrer">
                     <div class="entrance-card-image">
-                        <img src="Van-photo.png?v=2" alt="A/C shuttle pickup at main entrance, drop-off near podium" loading="lazy" width="842" height="428">
+                        <img src="Van-photo.jpg" alt="A/C shuttle pickup at main entrance, drop-off near podium" loading="lazy" width="842" height="428">
                         <span class="card-badge" data-i18n="badge-shuttle">A/C Shuttle</span>
                     </div>
                     <div class="entrance-card-body">
@@ -342,7 +344,7 @@
                 <a href="https://www.google.com/maps/dir/?api=1&destination=12.852392,80.224223&travelmode=walking"
                    class="entrance-card-link" data-track="pedestrian_walk" target="_blank" rel="noopener noreferrer">
                     <div class="entrance-card-image">
-                        <img src="back-entrance-2.png" alt="Pedestrian walking path to back entrance" loading="lazy" width="652" height="386">
+                        <img src="back-entrance-2.jpg" alt="Pedestrian walking path to back entrance" loading="lazy" width="652" height="386">
                         <span class="card-badge" data-i18n="badge-walking">Walking Path</span>
                     </div>
                     <div class="entrance-card-body">
@@ -559,7 +561,10 @@
                 });
             });
 
-            var CONFIG = { GOOGLE_SCRIPT_URL: '', SITE_ID: 'itpark-backgate-guide' };
+            var CONFIG = { GOOGLE_SCRIPT_URL: '', SITE_ID: 'renvia-code' };
+
+            var urlParams = new URLSearchParams(window.location.search);
+            var visitSource = urlParams.get('src') || 'direct';
 
             function getDeviceInfo() {
                 var ua = navigator.userAgent, device = 'Desktop', os = 'Unknown', browser = 'Unknown';
@@ -572,7 +577,7 @@
                 else if (/Safari/i.test(ua) && !/Chrome/i.test(ua)) browser = 'Safari';
                 else if (/Firefox/i.test(ua)) browser = 'Firefox';
                 else if (/Edg/i.test(ua)) browser = 'Edge';
-                return { device: device, os: os, browser: browser, screenWidth: window.screen.width, screenHeight: window.screen.height, language: navigator.language, timestamp: new Date().toISOString(), timezone: Intl.DateTimeFormat().resolvedOptions().timeZone };
+                return { device: device, os: os, browser: browser, source: visitSource, screenWidth: window.screen.width, screenHeight: window.screen.height, language: navigator.language, timestamp: new Date().toISOString(), timezone: Intl.DateTimeFormat().resolvedOptions().timeZone };
             }
 
             function trackClick(action) {
@@ -608,7 +613,7 @@
                 });
             });
 
-            trackClick('page_view');
+            trackClick('visit_' + visitSource);
         })();
     </script>
 </body>

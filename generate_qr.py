@@ -16,12 +16,12 @@ from PIL import Image, ImageDraw, ImageFont
 # ========================================
 # 🔧 UPDATE THIS WITH YOUR GITHUB USERNAME
 # ========================================
-GITHUB_USERNAME = "YOUR_USERNAME_HERE"
-REPO_NAME = "backgate-guide"
+GITHUB_USERNAME = "Renvia-code"
+REPO_NAME = "Sandhya-Infocity"
 # ========================================
 
 def generate_qr():
-    url = f"https://{GITHUB_USERNAME}.github.io/{REPO_NAME}/"
+    url = f"https://{GITHUB_USERNAME}.github.io/{REPO_NAME}/?src=qr"
     
     print(f"🔗 Generating QR code for: {url}")
     
@@ -85,7 +85,7 @@ def generate_qr():
     draw.text((sub_x, img.height + 108), subtitle, fill=(100, 116, 139), font=subtitle_font)
 
     # Footer
-    footer = "IT Park • Facility Management"
+    footer = "Sandhya Infocity • Facility Management"
     foot_bbox = draw.textbbox((0, 0), footer, font=small_font)
     foot_x = (canvas_width - (foot_bbox[2] - foot_bbox[0])) // 2
     draw.text((foot_x, img.height + 145), footer, fill=(148, 163, 184), font=small_font)
