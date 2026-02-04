@@ -219,9 +219,9 @@
         .reveal-trigger::-webkit-details-marker { display: none; }
         .reveal-content {
             margin-top: 16px; border-radius: 16px; overflow: hidden;
-            animation: revealFade 0.4s ease;
+            aspect-ratio: 16/9; animation: revealFade 0.4s ease;
         }
-        .reveal-content img { width: 100%; border-radius: 16px; }
+        .reveal-content img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; }
         .reveal-caption {
             margin-top: 10px; font-size: 12px; color: var(--c-text-muted);
             letter-spacing: 0.3px;
