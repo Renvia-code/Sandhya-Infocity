@@ -582,7 +582,7 @@
 
             function trackClick(action) {
                 var info = getDeviceInfo(); info.action = action; info.siteId = CONFIG.SITE_ID;
-                if (CONFIG.GOOGLE_SCRIPT_URL) { fetch(CONFIG.GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify(info) }).catch(function () {}); }
+                if (CONFIG.GOOGLE_SCRIPT_URL) { try { var blob = new Blob([JSON.stringify(info)], { type: 'application/json' }); navigator.sendBeacon(CONFIG.GOOGLE_SCRIPT_URL, blob); } catch (err) { fetch(CONFIG.GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(info) }).catch(function () {}); } }
                 if (window.goatcounter) { window.goatcounter.count({ path: action, event: true }); }
             }
 
