@@ -582,9 +582,17 @@
                 return { device: device, os: os, browser: browser, source: visitSource, screenWidth: window.screen.width, screenHeight: window.screen.height, language: navigator.language, timestamp: new Date().toISOString(), timezone: Intl.DateTimeFormat().resolvedOptions().timeZone };
             }
 
+            function logToSheets(url) {
+                var img = document.createElement('img');
+                img.style.cssText = 'position:fixed;top:-1px;left:-1px;width:1px;height:1px;opacity:0';
+                img.src = url;
+                img.onload = img.onerror = function () { setTimeout(function () { if (img.parentNode) img.parentNode.removeChild(img); }, 500); };
+                document.body.appendChild(img);
+            }
+
             function trackClick(action) {
                 var info = getDeviceInfo(); info.action = action; info.siteId = CONFIG.SITE_ID;
-                if (CONFIG.GOOGLE_SCRIPT_URL) { fetch(CONFIG.GOOGLE_SCRIPT_URL + '?d=' + encodeURIComponent(JSON.stringify(info)), { mode: 'no-cors' }).catch(function () {}); }
+                if (CONFIG.GOOGLE_SCRIPT_URL) { logToSheets(CONFIG.GOOGLE_SCRIPT_URL + '?d=' + encodeURIComponent(JSON.stringify(info))); }
                 if (window.goatcounter) { window.goatcounter.count({ path: action, event: true }); }
             }
 
