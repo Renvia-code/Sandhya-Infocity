@@ -14,14 +14,13 @@ from qrcode.image.styles.moduledrawers import RoundedModuleDrawer
 from PIL import Image, ImageDraw, ImageFont
 
 # ========================================
-# 🔧 UPDATE THIS WITH YOUR GITHUB USERNAME
+# 🔧 CUSTOM DOMAIN
 # ========================================
-GITHUB_USERNAME = "Renvia-code"
-REPO_NAME = "Sandhya-Infocity"
+DOMAIN = "sandhyainfocity.support"
 # ========================================
 
 def generate_qr():
-    url = f"https://{GITHUB_USERNAME}.github.io/{REPO_NAME}/?src=qr"
+    url = f"https://{DOMAIN}/?src=qr"
     
     print(f"🔗 Generating QR code for: {url}")
     
@@ -101,8 +100,4 @@ def generate_qr():
     print(f"📱 Test by scanning with your phone!")
 
 if __name__ == "__main__":
-    if GITHUB_USERNAME == "YOUR_USERNAME_HERE":
-        print("❌ ERROR: Please edit this file and update GITHUB_USERNAME first!")
-        print("   Open generate_qr.py and change 'YOUR_USERNAME_HERE' to your GitHub username")
-    else:
-        generate_qr()
+    generate_qr()
