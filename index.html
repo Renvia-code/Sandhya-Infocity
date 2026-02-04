@@ -561,7 +561,7 @@
                 });
             });
 
-            var CONFIG = { GOOGLE_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbz47gMe5JsSWS9BPV-RarHPs8huQk5yRw-yx5wUJjBISYVdKlSrI4NXaMDjThqPfVJCWQ/exec', SITE_ID: 'renvia-code' };
+            var CONFIG = { GOOGLE_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbwDTm6pGwoM3T3YbUkZLbNpSfH9wew_x4h1Zcy9qnW7kbN81JYOrCf8y2AiaJc6GrNQsw/exec', SITE_ID: 'renvia-code' };
 
             var urlParams = new URLSearchParams(window.location.search);
             var visitSource = urlParams.get('src') || 'direct';
@@ -582,7 +582,7 @@
 
             function trackClick(action) {
                 var info = getDeviceInfo(); info.action = action; info.siteId = CONFIG.SITE_ID;
-                if (CONFIG.GOOGLE_SCRIPT_URL) { try { var blob = new Blob([JSON.stringify(info)], { type: 'application/json' }); navigator.sendBeacon(CONFIG.GOOGLE_SCRIPT_URL, blob); } catch (err) { fetch(CONFIG.GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(info) }).catch(function () {}); } }
+                if (CONFIG.GOOGLE_SCRIPT_URL) { new Image().src = CONFIG.GOOGLE_SCRIPT_URL + '?d=' + encodeURIComponent(JSON.stringify(info)); }
                 if (window.goatcounter) { window.goatcounter.count({ path: action, event: true }); }
             }
 
