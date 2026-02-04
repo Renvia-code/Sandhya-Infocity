@@ -25,10 +25,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* =============================================
-           DESIGN TOKENS
-           ============================================= */
-
         :root {
             --c-bg: #ffffff;
             --c-text: #111827;
@@ -47,604 +43,169 @@
             --r-btn: 10px;
         }
 
-        /* =============================================
-           RESET & BASE
-           ============================================= */
-
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        *, *::before, *::after {
+            margin: 0; padding: 0; box-sizing: border-box;
             -webkit-tap-highlight-color: transparent;
         }
 
-        html {
-            -webkit-text-size-adjust: 100%;
-        }
+        html { -webkit-text-size-adjust: 100%; }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--c-bg);
-            color: var(--c-text);
+            background: var(--c-bg); color: var(--c-text);
             min-height: 100vh;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
-        img {
-            display: block;
-            max-width: 100%;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* =============================================
-           SKIP LINK
-           ============================================= */
+        img { display: block; max-width: 100%; }
+        a { text-decoration: none; color: inherit; }
 
         .skip-link {
-            position: absolute;
-            top: -100%;
-            left: 16px;
-            padding: 8px 16px;
-            background: var(--c-accent);
-            color: #fff;
-            font-size: 14px;
-            font-weight: 500;
-            border-radius: 0 0 8px 8px;
-            z-index: 100;
+            position: absolute; top: -100%; left: 16px;
+            padding: 8px 16px; background: var(--c-accent); color: #fff;
+            font-size: 14px; font-weight: 500;
+            border-radius: 0 0 8px 8px; z-index: 100;
         }
+        .skip-link:focus { top: 0; }
 
-        .skip-link:focus {
-            top: 0;
-        }
+        .page { max-width: 480px; margin: 0 auto; padding-bottom: 48px; }
+        .content { padding: 0 20px; }
 
-        /* =============================================
-           LAYOUT
-           ============================================= */
-
-        .page {
-            max-width: 480px;
-            margin: 0 auto;
-            padding-bottom: 48px;
-        }
-
-        .content {
-            padding: 0 20px;
-        }
-
-        /* =============================================
-           HERO
-           ============================================= */
-
-        .hero {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            max-height: 240px;
-            overflow: hidden;
-        }
-
-        .hero img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
+        /* Hero */
+        .hero { position: relative; width: 100%; aspect-ratio: 16/9; max-height: 240px; overflow: hidden; }
+        .hero img { width: 100%; height: 100%; object-fit: cover; }
         .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 72px;
-            background: linear-gradient(to top, var(--c-bg) 0%, transparent 100%);
-            pointer-events: none;
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 72px;
+            background: linear-gradient(to top, var(--c-bg) 0%, transparent 100%); pointer-events: none;
         }
 
-        /* =============================================
-           HEADER
-           ============================================= */
+        /* Header */
+        .header { text-align: center; padding: 4px 24px 0; }
+        .header-logo { width: 44px; height: 44px; margin: 0 auto 10px; }
+        .header-logo img { width: 100%; height: 100%; object-fit: contain; }
+        .header h1 { font-size: 21px; font-weight: 700; letter-spacing: -0.4px; line-height: 1.2; }
+        .header .subtitle { font-size: 14px; color: var(--c-text-secondary); margin-top: 6px; line-height: 1.5; }
 
-        .header {
-            text-align: center;
-            padding: 4px 24px 0;
+        /* Language toggle */
+        .lang-toggle { display: flex; justify-content: center; margin-top: 14px; }
+        .lang-btn {
+            padding: 6px 18px; font-size: 12px; font-weight: 600; font-family: inherit;
+            border: 1px solid var(--c-border); background: var(--c-bg); color: var(--c-text-muted);
+            cursor: pointer; transition: background 0.15s ease, color 0.15s ease; position: relative;
         }
+        .lang-btn:first-child { border-radius: 8px 0 0 8px; }
+        .lang-btn:last-child { border-radius: 0 8px 8px 0; margin-left: -1px; }
+        .lang-btn[aria-pressed="true"] { background: var(--c-text); color: #fff; border-color: var(--c-text); z-index: 1; }
+        .lang-btn:active { transform: scale(0.97); }
 
-        .header-logo {
-            width: 44px;
-            height: 44px;
-            margin: 0 auto 10px;
-        }
-
-        .header-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .header h1 {
-            font-size: 21px;
-            font-weight: 700;
-            letter-spacing: -0.4px;
-            line-height: 1.2;
-        }
-
-        .header .subtitle {
-            font-size: 14px;
-            color: var(--c-text-secondary);
-            margin-top: 6px;
-            line-height: 1.5;
-        }
-
-        /* =============================================
-           SECTION LABELS
-           ============================================= */
-
+        /* Section labels */
         .section-label {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--c-text-muted);
-            margin: 32px 0 14px;
-            padding-left: 2px;
+            font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+            color: var(--c-text-muted); margin: 32px 0 14px; padding-left: 2px;
         }
 
-        /* =============================================
-           FILTER BAR
-           ============================================= */
-
-        .filter-bar {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 16px;
-        }
-
+        /* Filter bar */
+        .filter-bar { display: flex; gap: 8px; margin-bottom: 16px; }
         .filter-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 7px 16px;
-            border-radius: 20px;
-            border: 1px solid var(--c-border);
-            background: var(--c-bg);
-            color: var(--c-text-secondary);
-            font-size: 13px;
-            font-weight: 500;
-            font-family: inherit;
-            cursor: pointer;
-            transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+            display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px;
+            border-radius: 20px; border: 1px solid var(--c-border); background: var(--c-bg);
+            color: var(--c-text-secondary); font-size: 13px; font-weight: 500; font-family: inherit;
+            cursor: pointer; transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
         }
+        .filter-badge svg { width: 14px; height: 14px; flex-shrink: 0; }
+        .filter-badge[aria-pressed="true"] { background: var(--c-accent); color: #fff; border-color: var(--c-accent); }
+        .filter-badge[aria-pressed="true"] svg { stroke: #fff; }
+        .filter-badge:active { transform: scale(0.96); }
 
-        .filter-badge svg {
-            width: 14px;
-            height: 14px;
-            flex-shrink: 0;
-        }
-
-        .filter-badge[aria-pressed="true"] {
-            background: var(--c-accent);
-            color: #fff;
-            border-color: var(--c-accent);
-        }
-
-        .filter-badge[aria-pressed="true"] svg {
-            stroke: #fff;
-        }
-
-        .filter-badge:active {
-            transform: scale(0.96);
-        }
-
-        /* =============================================
-           ENTRANCE CARDS
-           ============================================= */
-
+        /* Entrance cards */
         .entrance-card {
-            display: block;
-            background: var(--c-bg);
-            border: 1px solid var(--c-border);
-            border-radius: var(--r-card);
-            overflow: hidden;
-            margin-bottom: 14px;
+            display: block; background: var(--c-bg); border: 1px solid var(--c-border);
+            border-radius: var(--r-card); overflow: hidden; margin-bottom: 14px;
             transition: transform 0.12s ease, box-shadow 0.12s ease;
         }
-
-        .entrance-card[hidden] {
-            display: none;
-        }
-
-        a.entrance-card:active {
-            transform: scale(0.98);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
-        }
-
-        .entrance-card-link {
-            display: block;
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .entrance-card-image {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 2.4 / 1;
-            overflow: hidden;
-            background: #f3f4f6;
-        }
-
-        .entrance-card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
+        .entrance-card[hidden] { display: none; }
+        a.entrance-card:active { transform: scale(0.98); box-shadow: 0 0 0 3px rgba(37,99,235,0.08); }
+        .entrance-card-link { display: block; color: inherit; text-decoration: none; }
+        .entrance-card-image { position: relative; width: 100%; aspect-ratio: 2.4/1; overflow: hidden; background: #f3f4f6; }
+        .entrance-card-image img { width: 100%; height: 100%; object-fit: cover; }
         .card-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--c-text);
+            position: absolute; top: 10px; left: 10px;
+            background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 600; color: var(--c-text);
         }
+        .entrance-card-body { padding: 14px 16px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+        .entrance-card-info h3 { font-size: 15px; font-weight: 600; line-height: 1.3; margin-bottom: 2px; }
+        .entrance-card-info p { font-size: 13px; color: var(--c-text-secondary); }
+        .card-cta { display: flex; align-items: center; gap: 3px; font-size: 13px; font-weight: 500; color: var(--c-accent); white-space: nowrap; flex-shrink: 0; }
+        .card-cta svg { width: 14px; height: 14px; }
 
-        .entrance-card-body {
-            padding: 14px 16px 16px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-        }
+        /* Contact cards */
+        .contact-card { background: var(--c-bg); border: 1px solid var(--c-border); border-radius: 14px; padding: 16px; margin-bottom: 10px; }
+        .contact-top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+        .contact-avatar { width: 38px; height: 38px; border-radius: 50%; background: #f3f4f6; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .contact-avatar svg { width: 18px; height: 18px; stroke: var(--c-text-muted); fill: none; }
+        .contact-name { font-size: 15px; font-weight: 600; line-height: 1.3; }
+        .contact-role { font-size: 12px; color: var(--c-text-muted); margin-top: 1px; }
+        .contact-actions { display: flex; gap: 8px; }
 
-        .entrance-card-info h3 {
-            font-size: 15px;
-            font-weight: 600;
-            line-height: 1.3;
-            margin-bottom: 2px;
-        }
-
-        .entrance-card-info p {
-            font-size: 13px;
-            color: var(--c-text-secondary);
-        }
-
-        .card-cta {
-            display: flex;
-            align-items: center;
-            gap: 3px;
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--c-accent);
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-
-        .card-cta svg {
-            width: 14px;
-            height: 14px;
-        }
-
-        /* =============================================
-           CONTACT CARDS
-           ============================================= */
-
-        .contact-card {
-            background: var(--c-bg);
-            border: 1px solid var(--c-border);
-            border-radius: 14px;
-            padding: 16px;
-            margin-bottom: 10px;
-        }
-
-        .contact-top {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 14px;
-        }
-
-        .contact-avatar {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background: #f3f4f6;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .contact-avatar svg {
-            width: 18px;
-            height: 18px;
-            stroke: var(--c-text-muted);
-            fill: none;
-        }
-
-        .contact-name {
-            font-size: 15px;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-
-        .contact-role {
-            font-size: 12px;
-            color: var(--c-text-muted);
-            margin-top: 1px;
-        }
-
-        .contact-actions {
-            display: flex;
-            gap: 8px;
-        }
-
-        /* =============================================
-           BUTTONS
-           ============================================= */
-
+        /* Buttons */
         .btn {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 7px;
-            padding: 10px 14px;
-            border-radius: var(--r-btn);
-            font-size: 13px;
-            font-weight: 500;
-            font-family: inherit;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.1s ease;
+            flex: 1; display: flex; align-items: center; justify-content: center; gap: 7px;
+            padding: 10px 14px; border-radius: var(--r-btn); font-size: 13px; font-weight: 500;
+            font-family: inherit; border: none; cursor: pointer; transition: transform 0.1s ease;
         }
+        .btn:active { transform: scale(0.96); }
+        .btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+        .btn-call { background: var(--c-green-bg); color: var(--c-green); }
+        .btn-call svg { stroke: var(--c-green); fill: none; }
+        .btn-wa { background: var(--c-wa-bg); color: var(--c-wa); }
+        .btn-wa svg { fill: var(--c-wa); stroke: none; }
 
-        .btn:active {
-            transform: scale(0.96);
-        }
+        /* Notice */
+        .notice { margin-top: 32px; padding: 22px 20px; background: var(--c-surface); border-radius: 14px; }
+        .notice-icon { width: 32px; height: 32px; border-radius: 50%; background: var(--c-warm-bg); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+        .notice-icon svg { width: 16px; height: 16px; }
+        .notice p { font-size: 13.5px; color: var(--c-text-secondary); line-height: 1.72; }
+        .notice p + p { margin-top: 10px; }
+        .notice .sign-off { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--c-border); font-size: 12px; color: var(--c-text-muted); line-height: 1.6; }
+        .sign-off-line { display: block; }
 
-        .btn svg {
-            width: 15px;
-            height: 15px;
-            flex-shrink: 0;
-        }
+        /* Footer */
+        .footer { text-align: center; padding: 32px 20px 8px; }
+        .footer-logo { width: 28px; height: 28px; margin: 0 auto 6px; opacity: 0.3; }
+        .footer-logo img { width: 100%; height: 100%; object-fit: contain; }
+        .footer-text { font-size: 11px; color: var(--c-text-muted); letter-spacing: 0.2px; }
 
-        .btn-call {
-            background: var(--c-green-bg);
-            color: var(--c-green);
-        }
-
-        .btn-call svg {
-            stroke: var(--c-green);
-            fill: none;
-        }
-
-        .btn-wa {
-            background: var(--c-wa-bg);
-            color: var(--c-wa);
-        }
-
-        .btn-wa svg {
-            fill: var(--c-wa);
-            stroke: none;
-        }
-
-        /* =============================================
-           NOTICE
-           ============================================= */
-
-        .notice {
-            margin-top: 32px;
-            padding: 22px 20px;
-            background: var(--c-surface);
-            border-radius: 14px;
-        }
-
-        .notice-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: var(--c-warm-bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 14px;
-        }
-
-        .notice-icon svg {
-            width: 16px;
-            height: 16px;
-        }
-
-        .notice p {
-            font-size: 13.5px;
-            color: var(--c-text-secondary);
-            line-height: 1.72;
-        }
-
-        .notice p + p {
-            margin-top: 10px;
-        }
-
-        .notice .sign-off {
-            margin-top: 16px;
-            padding-top: 14px;
-            border-top: 1px solid var(--c-border);
-            font-size: 12px;
-            color: var(--c-text-muted);
-            line-height: 1.6;
-        }
-
-        /* =============================================
-           FOOTER
-           ============================================= */
-
-        .footer {
-            text-align: center;
-            padding: 32px 20px 8px;
-        }
-
-        .footer-logo {
-            width: 28px;
-            height: 28px;
-            margin: 0 auto 6px;
-            opacity: 0.3;
-        }
-
-        .footer-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .footer-text {
-            font-size: 11px;
-            color: var(--c-text-muted);
-            letter-spacing: 0.2px;
-        }
-
-        /* =============================================
-           EXPANDABLE SHUTTLE PANEL
-           ============================================= */
-
-        .shuttle-details {
-            border-top: 1px solid var(--c-border);
-        }
-
+        /* Shuttle panel */
+        .shuttle-details { border-top: 1px solid var(--c-border); }
         .expand-toggle {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            padding: 12px 16px;
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--c-accent);
-            cursor: pointer;
-            list-style: none;
-            font-family: inherit;
+            display: flex; align-items: center; justify-content: center; gap: 6px; padding: 12px 16px;
+            font-size: 13px; font-weight: 500; color: var(--c-accent); cursor: pointer; list-style: none; font-family: inherit;
         }
-
-        .expand-toggle::-webkit-details-marker {
-            display: none;
-        }
-
-        .expand-toggle svg {
-            width: 14px;
-            height: 14px;
-            transition: transform 0.2s ease;
-        }
-
-        details[open] > .expand-toggle svg {
-            transform: rotate(180deg);
-        }
-
-        .shuttle-panel {
-            padding: 0 16px 18px;
-        }
-
-        .shuttle-provider {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--c-text);
-            margin-bottom: 2px;
-        }
-
-        .shuttle-desc {
-            font-size: 12px;
-            color: var(--c-text-muted);
-            margin-bottom: 14px;
-        }
-
-        .driver-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 0;
-            border-bottom: 1px solid #f3f4f6;
-        }
-
-        .driver-row:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
+        .expand-toggle::-webkit-details-marker { display: none; }
+        .expand-toggle svg { width: 14px; height: 14px; transition: transform 0.2s ease; }
+        details[open] > .expand-toggle svg { transform: rotate(180deg); }
+        .shuttle-panel { padding: 0 16px 18px; }
+        .shuttle-provider { font-size: 13px; font-weight: 600; color: var(--c-text); margin-bottom: 2px; }
+        .shuttle-desc { font-size: 12px; color: var(--c-text-muted); margin-bottom: 14px; }
+        .driver-row { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #f3f4f6; }
+        .driver-row:last-child { border-bottom: none; padding-bottom: 0; }
         .plate {
-            padding: 5px 8px;
-            background: var(--c-bg);
-            border: 2px solid #1f2937;
-            border-radius: 4px;
-            font-family: 'SF Mono', 'Menlo', 'Consolas', 'Courier New', monospace;
-            font-size: 10.5px;
-            font-weight: 700;
-            letter-spacing: 0.8px;
-            color: #111827;
-            white-space: nowrap;
-            flex-shrink: 0;
+            padding: 5px 8px; background: var(--c-bg); border: 2px solid #1f2937; border-radius: 4px;
+            font-family: 'SF Mono','Menlo','Consolas','Courier New',monospace;
+            font-size: 10.5px; font-weight: 700; letter-spacing: 0.8px; color: #111827; white-space: nowrap; flex-shrink: 0;
         }
+        .driver-name { flex: 1; font-size: 13px; font-weight: 500; color: var(--c-text); min-width: 0; }
+        .btn-sm { flex: none; padding: 7px 12px; font-size: 12px; gap: 5px; }
+        .btn-sm svg { width: 13px; height: 13px; }
 
-        .driver-name {
-            flex: 1;
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--c-text);
-            min-width: 0;
-        }
+        /* Focus */
+        a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--c-accent); outline-offset: 2px; }
+        .entrance-card:focus-visible { box-shadow: 0 0 0 4px rgba(37,99,235,0.12); }
 
-        .btn-sm {
-            flex: none;
-            padding: 7px 12px;
-            font-size: 12px;
-            gap: 5px;
-        }
-
-        .btn-sm svg {
-            width: 13px;
-            height: 13px;
-        }
-
-        /* =============================================
-           FOCUS STATES
-           ============================================= */
-
-        a:focus-visible,
-        button:focus-visible,
-        summary:focus-visible {
-            outline: 2px solid var(--c-accent);
-            outline-offset: 2px;
-        }
-
-        .entrance-card:focus-visible {
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
-        }
-
-        /* =============================================
-           ACCESSIBILITY & SAFE AREA
-           ============================================= */
-
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                transition: none !important;
-            }
-        }
-
-        @supports (padding-bottom: env(safe-area-inset-bottom)) {
-            .page {
-                padding-bottom: calc(48px + env(safe-area-inset-bottom));
-            }
-        }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
+        @supports (padding-bottom: env(safe-area-inset-bottom)) { .page { padding-bottom: calc(48px + env(safe-area-inset-bottom)); } }
     </style>
 </head>
 <body>
@@ -652,62 +213,51 @@
 
     <div class="page">
 
-        <!-- Hero -->
         <div class="hero">
-            <img src="entrance-photo.png"
-                 alt="Sandhya Infocity main entrance"
-                 loading="eager"
-                 fetchpriority="high"
-                 width="662" height="420">
+            <img src="entrance-photo.png" alt="Sandhya Infocity main entrance" loading="eager" fetchpriority="high" width="662" height="420">
         </div>
 
-        <!-- Header -->
         <header class="header">
             <div class="header-logo">
                 <img src="sandhya-infocity.png" alt="Sandhya Infocity" width="44" height="44">
             </div>
-            <h1>Back Gate Guide</h1>
-            <p class="subtitle">Navigate to the nearest entrance</p>
+            <h1 data-i18n="page-title">Back Gate Guide</h1>
+            <p class="subtitle" data-i18n="page-subtitle">Navigate to the nearest entrance</p>
+            <div class="lang-toggle" role="group" aria-label="Language">
+                <button class="lang-btn" data-lang="en" aria-pressed="true" type="button">EN</button>
+                <button class="lang-btn" data-lang="ta" aria-pressed="false" type="button">தமிழ்</button>
+            </div>
         </header>
 
-        <!-- Directions -->
         <main class="content" id="main">
 
-            <div class="section-label">Directions</div>
+            <div class="section-label" data-i18n="section-directions">Directions</div>
 
-            <!-- Filter -->
             <div class="filter-bar" role="group" aria-label="Filter directions">
                 <button class="filter-badge" data-filter="driving" aria-pressed="false" type="button">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25m-4.5 0V5.625c0-.621-.504-1.125-1.125-1.125H5.25c-.621 0-1.125.504-1.125 1.125v12m10.125-9.375h3.375c.621 0 1.125.504 1.125 1.125v3.375"/></svg>
-                    Driver
+                    <span data-i18n="filter-driver">Driver</span>
                 </button>
                 <button class="filter-badge" data-filter="walking" aria-pressed="false" type="button">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM12 12.75l-2.25 6.75m0 0l-1.5 2.25m1.5-2.25h3m1.5-6.75l2.25 6.75m0 0l1.5 2.25m-1.5-2.25h-3"/></svg>
-                    Pedestrian
+                    <span data-i18n="filter-pedestrian">Pedestrian</span>
                 </button>
             </div>
 
             <!-- Entrance 1 — Driving -->
             <a href="https://www.google.com/maps/dir/?api=1&destination=12.847699,80.223052&travelmode=driving"
-               class="entrance-card"
-               data-track="entrance1"
-               data-category="driving"
-               target="_blank"
-               rel="noopener noreferrer">
+               class="entrance-card" data-track="entrance1" data-category="driving" target="_blank" rel="noopener noreferrer">
                 <div class="entrance-card-image">
-                    <img src="back-entrance-1.png"
-                         alt="Back Entrance 1, lane before main gate near Mount Litera Zee School"
-                         loading="eager"
-                         width="1246" height="674">
-                    <span class="card-badge">Entrance 1</span>
+                    <img src="back-entrance-1.png" alt="Back Entrance 1, lane before main gate near Mount Litera Zee School" loading="eager" width="1246" height="674">
+                    <span class="card-badge" data-i18n="badge-entrance1">Entrance 1</span>
                 </div>
                 <div class="entrance-card-body">
                     <div class="entrance-card-info">
-                        <h3>Back Entrance 1</h3>
-                        <p>Lane Before Main Gate &middot; Near Mount Litera Zee School</p>
+                        <h3 data-i18n="entrance1-title">Back Entrance 1</h3>
+                        <p data-i18n="entrance1-desc">Lane Before Main Gate · Near Mount Litera Zee School</p>
                     </div>
                     <span class="card-cta" aria-hidden="true">
-                        Maps
+                        <span data-i18n="maps">Maps</span>
                         <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
                     </span>
                 </div>
@@ -715,69 +265,56 @@
 
             <!-- Entrance 2 — Driving -->
             <a href="https://www.google.com/maps/dir/?api=1&destination=12.852392,80.224223&travelmode=driving"
-               class="entrance-card"
-               data-track="entrance2"
-               data-category="driving"
-               target="_blank"
-               rel="noopener noreferrer">
+               class="entrance-card" data-track="entrance2" data-category="driving" target="_blank" rel="noopener noreferrer">
                 <div class="entrance-card-image">
-                    <img src="back-entrance-2.png"
-                         alt="Back Entrance 2, lane past main gate near Geetham Restaurant"
-                         loading="lazy"
-                         width="652" height="386">
-                    <span class="card-badge">Entrance 2</span>
+                    <img src="back-entrance-2.png" alt="Back Entrance 2, lane past main gate near Geetham Restaurant" loading="lazy" width="652" height="386">
+                    <span class="card-badge" data-i18n="badge-entrance2">Entrance 2</span>
                 </div>
                 <div class="entrance-card-body">
                     <div class="entrance-card-info">
-                        <h3>Back Entrance 2</h3>
-                        <p>Lane Past Main Gate &middot; Near Geetham Restaurant</p>
+                        <h3 data-i18n="entrance2-title">Back Entrance 2</h3>
+                        <p data-i18n="entrance2-desc">Lane Past Main Gate · Near Geetham Restaurant</p>
                     </div>
                     <span class="card-cta" aria-hidden="true">
-                        Maps
+                        <span data-i18n="maps">Maps</span>
                         <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
                     </span>
                 </div>
             </a>
 
-            <!-- Vehicle Pickup — Driving -->
-            <div class="entrance-card" data-category="driving">
+            <!-- A/C Shuttle — Pedestrian category -->
+            <div class="entrance-card" data-category="walking">
                 <a href="https://www.google.com/maps/dir/?api=1&destination=12.850022,80.226467&travelmode=driving"
-                   class="entrance-card-link"
-                   data-track="vehicle_pickup"
-                   target="_blank"
-                   rel="noopener noreferrer">
+                   class="entrance-card-link" data-track="vehicle_pickup" target="_blank" rel="noopener noreferrer">
                     <div class="entrance-card-image">
-                        <img src="Van-photo.png"
-                             alt="A/C shuttle pickup at main entrance, drop-off near podium"
-                             loading="lazy"
-                             width="800" height="364">
-                        <span class="card-badge">A/C Shuttle</span>
+                        <img src="Van-photo.png" alt="A/C shuttle pickup at main entrance, drop-off near podium" loading="lazy" width="800" height="364">
+                        <span class="card-badge" data-i18n="badge-shuttle">A/C Shuttle</span>
                     </div>
                     <div class="entrance-card-body">
                         <div class="entrance-card-info">
-                            <h3>A/C Shuttle Pickup</h3>
-                            <p>Board at Main Entrance &middot; Drop-off near Podium</p>
+                            <h3 data-i18n="shuttle-title">A/C Shuttle Pickup</h3>
+                            <p data-i18n="shuttle-desc">Board at Main Entrance · Drop-off near Podium</p>
                         </div>
                         <span class="card-cta" aria-hidden="true">
-                            Maps
+                            <span data-i18n="maps">Maps</span>
                             <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
                         </span>
                     </div>
                 </a>
                 <details class="shuttle-details">
                     <summary class="expand-toggle" data-track="expand_shuttle">
-                        <span>View shuttle details</span>
+                        <span data-i18n="view-shuttle">View shuttle details</span>
                         <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
                     </summary>
                     <div class="shuttle-panel">
                         <div class="shuttle-provider">Cosmo Cabs</div>
-                        <div class="shuttle-desc">3 Tempo vehicles &middot; 18+1 seater</div>
+                        <div class="shuttle-desc" data-i18n="tempo-desc">3 Tempo vehicles · 18+1 seater</div>
                         <div class="driver-row">
                             <span class="plate">TN 21 BE 5757</span>
                             <span class="driver-name">Ashok</span>
                             <a href="tel:+919551532020" class="btn btn-call btn-sm" data-track="call_ashok" aria-label="Call Ashok">
                                 <svg viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
-                                Call
+                                <span data-i18n="call">Call</span>
                             </a>
                         </div>
                         <div class="driver-row">
@@ -785,7 +322,7 @@
                             <span class="driver-name">Siva</span>
                             <a href="tel:+916385609616" class="btn btn-call btn-sm" data-track="call_siva" aria-label="Call Siva">
                                 <svg viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
-                                Call
+                                <span data-i18n="call">Call</span>
                             </a>
                         </div>
                         <div class="driver-row">
@@ -793,7 +330,7 @@
                             <span class="driver-name">Vijay</span>
                             <a href="tel:+918667783223" class="btn btn-call btn-sm" data-track="call_vijay" aria-label="Call Vijay">
                                 <svg viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
-                                Call
+                                <span data-i18n="call">Call</span>
                             </a>
                         </div>
                     </div>
@@ -803,42 +340,36 @@
             <!-- Pedestrian Walking Path -->
             <div class="entrance-card" data-category="walking">
                 <a href="https://www.google.com/maps/dir/?api=1&destination=12.852392,80.224223&travelmode=walking"
-                   class="entrance-card-link"
-                   data-track="pedestrian_walk"
-                   target="_blank"
-                   rel="noopener noreferrer">
+                   class="entrance-card-link" data-track="pedestrian_walk" target="_blank" rel="noopener noreferrer">
                     <div class="entrance-card-image">
-                        <img src="back-entrance-2.png"
-                             alt="Pedestrian walking path to back entrance"
-                             loading="lazy"
-                             width="652" height="386">
-                        <span class="card-badge">Walking Path</span>
+                        <img src="back-entrance-2.png" alt="Pedestrian walking path to back entrance" loading="lazy" width="652" height="386">
+                        <span class="card-badge" data-i18n="badge-walking">Walking Path</span>
                     </div>
                     <div class="entrance-card-body">
                         <div class="entrance-card-info">
-                            <h3>Pedestrian Walking Path</h3>
-                            <p>550m from entrance &middot; ~8 min walk</p>
+                            <h3 data-i18n="walking-title">Pedestrian Walking Path</h3>
+                            <p data-i18n="walking-desc">550m from entrance · ~8 min walk</p>
                         </div>
                         <span class="card-cta" aria-hidden="true">
-                            Maps
+                            <span data-i18n="maps">Maps</span>
                             <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
                         </span>
                     </div>
                 </a>
                 <details class="shuttle-details">
                     <summary class="expand-toggle" data-track="expand_pedestrian">
-                        <span>View shuttle details</span>
+                        <span data-i18n="view-shuttle">View shuttle details</span>
                         <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
                     </summary>
                     <div class="shuttle-panel">
                         <div class="shuttle-provider">Cosmo Cabs</div>
-                        <div class="shuttle-desc">3 Tempo vehicles &middot; 18+1 seater</div>
+                        <div class="shuttle-desc" data-i18n="tempo-desc">3 Tempo vehicles · 18+1 seater</div>
                         <div class="driver-row">
                             <span class="plate">TN 21 BE 5757</span>
                             <span class="driver-name">Ashok</span>
                             <a href="tel:+919551532020" class="btn btn-call btn-sm" data-track="call_ashok_ped" aria-label="Call Ashok">
                                 <svg viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
-                                Call
+                                <span data-i18n="call">Call</span>
                             </a>
                         </div>
                         <div class="driver-row">
@@ -846,7 +377,7 @@
                             <span class="driver-name">Siva</span>
                             <a href="tel:+916385609616" class="btn btn-call btn-sm" data-track="call_siva_ped" aria-label="Call Siva">
                                 <svg viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
-                                Call
+                                <span data-i18n="call">Call</span>
                             </a>
                         </div>
                         <div class="driver-row">
@@ -854,7 +385,7 @@
                             <span class="driver-name">Vijay</span>
                             <a href="tel:+918667783223" class="btn btn-call btn-sm" data-track="call_vijay_ped" aria-label="Call Vijay">
                                 <svg viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
-                                Call
+                                <span data-i18n="call">Call</span>
                             </a>
                         </div>
                     </div>
@@ -862,22 +393,17 @@
             </div>
 
             <!-- Contacts -->
-            <div class="section-label">Need Help?</div>
+            <div class="section-label" data-i18n="section-help">Need Help?</div>
 
             <div class="contact-card">
                 <div class="contact-top">
-                    <div class="contact-avatar">
-                        <svg viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
-                    </div>
-                    <div>
-                        <div class="contact-name">Abdul</div>
-                        <div class="contact-role">Security Head</div>
-                    </div>
+                    <div class="contact-avatar"><svg viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg></div>
+                    <div><div class="contact-name">Abdul</div><div class="contact-role" data-i18n="role-security">Security Head</div></div>
                 </div>
                 <div class="contact-actions">
                     <a href="tel:+919841172866" class="btn btn-call" data-track="call_abdul" aria-label="Call Abdul">
                         <svg viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
-                        Call
+                        <span data-i18n="call">Call</span>
                     </a>
                     <a href="https://wa.me/919841172866" class="btn btn-wa" data-track="wa_abdul" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Abdul">
                         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -888,18 +414,13 @@
 
             <div class="contact-card">
                 <div class="contact-top">
-                    <div class="contact-avatar">
-                        <svg viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
-                    </div>
-                    <div>
-                        <div class="contact-name">Akaram</div>
-                        <div class="contact-role">Gate Supervisor</div>
-                    </div>
+                    <div class="contact-avatar"><svg viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg></div>
+                    <div><div class="contact-name">Akaram</div><div class="contact-role" data-i18n="role-gate">Gate Supervisor</div></div>
                 </div>
                 <div class="contact-actions">
                     <a href="tel:+919176641559" class="btn btn-call" data-track="call_akaram" aria-label="Call Akaram">
                         <svg viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
-                        Call
+                        <span data-i18n="call">Call</span>
                     </a>
                     <a href="https://wa.me/919176641559" class="btn btn-wa" data-track="wa_akaram" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Akaram">
                         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -910,18 +431,13 @@
 
             <div class="contact-card">
                 <div class="contact-top">
-                    <div class="contact-avatar">
-                        <svg viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
-                    </div>
-                    <div>
-                        <div class="contact-name">Dinesh</div>
-                        <div class="contact-role">24/7 Helpdesk</div>
-                    </div>
+                    <div class="contact-avatar"><svg viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg></div>
+                    <div><div class="contact-name">Dinesh</div><div class="contact-role" data-i18n="role-helpdesk">24/7 Helpdesk</div></div>
                 </div>
                 <div class="contact-actions">
                     <a href="tel:+917729880644" class="btn btn-call" data-track="call_dinesh" aria-label="Call Dinesh">
                         <svg viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
-                        Call
+                        <span data-i18n="call">Call</span>
                     </a>
                     <a href="https://wa.me/917729880644" class="btn btn-wa" data-track="wa_dinesh" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Dinesh">
                         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -930,27 +446,21 @@
                 </div>
             </div>
 
-            <!-- Notice -->
             <div class="notice">
-                <div class="notice-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg>
-                </div>
-                <p>We sincerely apologize for any inconvenience caused by the temporary changes to entrance access. This guide has been created to help you reach the campus as smoothly as possible.</p>
-                <p>Your patience and understanding mean a great deal to us. We are committed to restoring seamless access at the earliest.</p>
+                <div class="notice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg></div>
+                <p data-i18n="notice-p1">We sincerely apologize for any inconvenience caused by the temporary changes to entrance access. This guide has been created to help you reach the campus as smoothly as possible.</p>
+                <p data-i18n="notice-p2">Your patience and understanding mean a great deal to us. We are committed to restoring seamless access at the earliest.</p>
                 <div class="sign-off">
-                    Warm regards,<br>
-                    Sandhya Infocity &middot; Facility Management
+                    <span class="sign-off-line" data-i18n="sign-off-1">Warm regards,</span>
+                    <span class="sign-off-line" data-i18n="sign-off-2">Sandhya Infocity · Facility Management</span>
                 </div>
             </div>
 
         </main>
 
-        <!-- Footer -->
         <footer class="footer">
-            <div class="footer-logo">
-                <img src="sandhya-infocity.png" alt="" width="28" height="28">
-            </div>
-            <div class="footer-text">Sandhya Infocity &middot; Facility Management</div>
+            <div class="footer-logo"><img src="sandhya-infocity.png" alt="" width="28" height="28"></div>
+            <div class="footer-text" data-i18n="footer">Sandhya Infocity · Facility Management</div>
         </footer>
 
     </div>
@@ -959,68 +469,123 @@
         (function () {
             'use strict';
 
-            var CONFIG = {
-                GOOGLE_SCRIPT_URL: '',
-                SITE_ID: 'itpark-backgate-guide'
+            var STRINGS = {
+                en: {
+                    'page-title': 'Back Gate Guide',
+                    'page-subtitle': 'Navigate to the nearest entrance',
+                    'section-directions': 'Directions',
+                    'filter-driver': 'Driver',
+                    'filter-pedestrian': 'Pedestrian',
+                    'badge-entrance1': 'Entrance 1',
+                    'entrance1-title': 'Back Entrance 1',
+                    'entrance1-desc': 'Lane Before Main Gate \u00b7 Near Mount Litera Zee School',
+                    'badge-entrance2': 'Entrance 2',
+                    'entrance2-title': 'Back Entrance 2',
+                    'entrance2-desc': 'Lane Past Main Gate \u00b7 Near Geetham Restaurant',
+                    'badge-shuttle': 'A/C Shuttle',
+                    'shuttle-title': 'A/C Shuttle Pickup',
+                    'shuttle-desc': 'Board at Main Entrance \u00b7 Drop-off near Podium',
+                    'badge-walking': 'Walking Path',
+                    'walking-title': 'Pedestrian Walking Path',
+                    'walking-desc': '550m from entrance \u00b7 ~8 min walk',
+                    'maps': 'Maps',
+                    'view-shuttle': 'View shuttle details',
+                    'tempo-desc': '3 Tempo vehicles \u00b7 18+1 seater',
+                    'call': 'Call',
+                    'section-help': 'Need Help?',
+                    'role-security': 'Security Head',
+                    'role-gate': 'Gate Supervisor',
+                    'role-helpdesk': '24/7 Helpdesk',
+                    'notice-p1': 'We sincerely apologize for any inconvenience caused by the temporary changes to entrance access. This guide has been created to help you reach the campus as smoothly as possible.',
+                    'notice-p2': 'Your patience and understanding mean a great deal to us. We are committed to restoring seamless access at the earliest.',
+                    'sign-off-1': 'Warm regards,',
+                    'sign-off-2': 'Sandhya Infocity \u00b7 Facility Management',
+                    'footer': 'Sandhya Infocity \u00b7 Facility Management'
+                },
+                ta: {
+                    'page-title': '\u0baa\u0bbf\u0ba9\u0bcd \u0bb5\u0bbe\u0baf\u0bbf\u0bb2\u0bcd \u0bb5\u0bb4\u0bbf\u0b95\u0bbe\u0b9f\u0bcd\u0b9f\u0bbf',
+                    'page-subtitle': '\u0b85\u0bb0\u0bc1\u0b95\u0bbf\u0bb2\u0bc1\u0bb3\u0bcd\u0bb3 \u0ba8\u0bc1\u0bb4\u0bc8\u0bb5\u0bbe\u0baf\u0bbf\u0bb2\u0bc1\u0b95\u0bcd\u0b95\u0bc1\u0b9a\u0bcd \u0b9a\u0bc6\u0bb2\u0bcd\u0bb2\u0bc1\u0b99\u0bcd\u0b95\u0bb3\u0bcd',
+                    'section-directions': '\u0bb5\u0bb4\u0bbf\u0b95\u0bb3\u0bcd',
+                    'filter-driver': '\u0bb5\u0bbe\u0b95\u0ba9\u0bae\u0bcd',
+                    'filter-pedestrian': '\u0ba8\u0b9f\u0bc8\u0baa\u0baf\u0ba3\u0bbf',
+                    'badge-entrance1': '\u0ba8\u0bc1\u0bb4\u0bc8\u0bb5\u0bc1 1',
+                    'entrance1-title': '\u0baa\u0bbf\u0ba9\u0bcd \u0ba8\u0bc1\u0bb4\u0bc8\u0bb5\u0bc1 1',
+                    'entrance1-desc': '\u0baa\u0bbf\u0bb0\u0ba4\u0bbe\u0ba9 \u0bb5\u0bbe\u0baf\u0bbf\u0bb2\u0bc1\u0b95\u0bcd\u0b95\u0bc1 \u0bae\u0bc1\u0ba9\u0bcd \u0baa\u0bbe\u0ba4\u0bc8 \u00b7 Mount Litera Zee School \u0b85\u0bb0\u0bc1\u0b95\u0bbf\u0bb2\u0bcd',
+                    'badge-entrance2': '\u0ba8\u0bc1\u0bb4\u0bc8\u0bb5\u0bc1 2',
+                    'entrance2-title': '\u0baa\u0bbf\u0ba9\u0bcd \u0ba8\u0bc1\u0bb4\u0bc8\u0bb5\u0bc1 2',
+                    'entrance2-desc': '\u0baa\u0bbf\u0bb0\u0ba4\u0bbe\u0ba9 \u0bb5\u0bbe\u0baf\u0bbf\u0bb2\u0bc8\u0b95\u0bcd \u0b95\u0b9f\u0ba8\u0bcd\u0ba4 \u0baa\u0bbe\u0ba4\u0bc8 \u00b7 Geetham Restaurant \u0b85\u0bb0\u0bc1\u0b95\u0bbf\u0bb2\u0bcd',
+                    'badge-shuttle': '\u0b8f\u0b9a\u0bbf \u0bb7\u0b9f\u0bcd\u0b9f\u0bbf\u0bb2\u0bcd',
+                    'shuttle-title': '\u0b8f\u0b9a\u0bbf \u0bb7\u0b9f\u0bcd\u0b9f\u0bbf\u0bb2\u0bcd \u0baa\u0bbf\u0b95\u0bcd\u0b85\u0baa\u0bcd',
+                    'shuttle-desc': '\u0baa\u0bbf\u0bb0\u0ba4\u0bbe\u0ba9 \u0ba8\u0bc1\u0bb4\u0bc8\u0bb5\u0bbe\u0baf\u0bbf\u0bb2\u0bbf\u0bb2\u0bcd \u0b8f\u0bb1\u0bb5\u0bc1\u0bae\u0bcd \u00b7 Podium \u0b85\u0bb0\u0bc1\u0b95\u0bbf\u0bb2\u0bcd \u0b87\u0bb1\u0b95\u0bcd\u0b95\u0bae\u0bcd',
+                    'badge-walking': '\u0ba8\u0b9f\u0bc8\u0baa\u0bcd\u0baa\u0bbe\u0ba4\u0bc8',
+                    'walking-title': '\u0ba8\u0b9f\u0bc8\u0baa\u0bcd\u0baa\u0bbe\u0ba4\u0bc8',
+                    'walking-desc': '\u0ba8\u0bc1\u0bb4\u0bc8\u0bb5\u0bbe\u0baf\u0bbf\u0bb2\u0bbf\u0bb0\u0bc1\u0ba8\u0bcd\u0ba4\u0bc1 550\u0bae\u0bc0 \u00b7 ~8 \u0ba8\u0bbf\u0bae\u0bbf\u0b9f \u0ba8\u0b9f\u0bc8',
+                    'maps': '\u0bb5\u0bb0\u0bc8\u0baa\u0b9f\u0bae\u0bcd',
+                    'view-shuttle': '\u0bb7\u0b9f\u0bcd\u0b9f\u0bbf\u0bb2\u0bcd \u0bb5\u0bbf\u0bb5\u0bb0\u0b99\u0bcd\u0b95\u0bb3\u0bcd',
+                    'tempo-desc': '3 \u0b9f\u0bc6\u0bae\u0bcd\u0baa\u0bcb \u0bb5\u0bbe\u0b95\u0ba9\u0b99\u0bcd\u0b95\u0bb3\u0bcd \u00b7 18+1 \u0b87\u0bb0\u0bc1\u0b95\u0bcd\u0b95\u0bc8',
+                    'call': '\u0b85\u0bb4\u0bc8',
+                    'section-help': '\u0b89\u0ba4\u0bb5\u0bbf \u0ba4\u0bc7\u0bb5\u0bc8\u0baf\u0bbe?',
+                    'role-security': '\u0baa\u0bbe\u0ba4\u0bc1\u0b95\u0bbe\u0baa\u0bcd\u0baa\u0bc1 \u0ba4\u0bb2\u0bc8\u0bb5\u0bb0\u0bcd',
+                    'role-gate': '\u0bb5\u0bbe\u0baf\u0bbf\u0bb2\u0bcd \u0bae\u0bc7\u0bb1\u0bcd\u0baa\u0bbe\u0bb0\u0bcd\u0bb5\u0bc8\u0baf\u0bbe\u0bb3\u0bb0\u0bcd',
+                    'role-helpdesk': '24/7 \u0b89\u0ba4\u0bb5\u0bbf \u0bae\u0bc8\u0baf\u0bae\u0bcd',
+                    'notice-p1': '\u0ba8\u0bc1\u0bb4\u0bc8\u0bb5\u0bbe\u0baf\u0bbf\u0bb2\u0bcd \u0b85\u0ba3\u0bc1\u0b95\u0bb2\u0bbf\u0bb2\u0bcd \u0ba4\u0bb1\u0bcd\u0b95\u0bbe\u0bb2\u0bbf\u0b95 \u0bae\u0bbe\u0bb1\u0bcd\u0bb1\u0b99\u0bcd\u0b95\u0bb3\u0bbe\u0bb2\u0bcd \u0b8f\u0bb1\u0bcd\u0baa\u0b9f\u0bcd\u0b9f \u0b9a\u0bbf\u0bb0\u0bae\u0ba4\u0bcd\u0ba4\u0bbf\u0bb1\u0bcd\u0b95\u0bc1 \u0bae\u0ba9\u0bae\u0bbe\u0bb0\u0bcd\u0ba8\u0bcd\u0ba4 \u0bae\u0ba9\u0bcd\u0ba9\u0bbf\u0baa\u0bcd\u0baa\u0bc1 \u0b95\u0bc7\u0b9f\u0bcd\u0b9f\u0bc1\u0b95\u0bcd\u0b95\u0bca\u0bb3\u0bcd\u0b95\u0bbf\u0bb1\u0bcb\u0bae\u0bcd. \u0bb5\u0bb3\u0bbe\u0b95\u0ba4\u0bcd\u0ba4\u0bc8 \u0b8e\u0bb3\u0bbf\u0ba4\u0bbe\u0b95 \u0b85\u0b9f\u0bc8\u0baf \u0b87\u0ba8\u0bcd\u0ba4 \u0bb5\u0bb4\u0bbf\u0b95\u0bbe\u0b9f\u0bcd\u0b9f\u0bbf \u0b89\u0bb0\u0bc1\u0bb5\u0bbe\u0b95\u0bcd\u0b95\u0baa\u0bcd\u0baa\u0b9f\u0bcd\u0b9f\u0bc1\u0bb3\u0bcd\u0bb3\u0ba4\u0bc1.',
+                    'notice-p2': '\u0b89\u0b99\u0bcd\u0b95\u0bb3\u0bcd \u0baa\u0bca\u0bb1\u0bc1\u0bae\u0bc8\u0baf\u0bc1\u0bae\u0bcd \u0baa\u0bc1\u0bb0\u0bbf\u0ba4\u0bb2\u0bc1\u0bae\u0bcd \u0b8e\u0b99\u0bcd\u0b95\u0bb3\u0bc1\u0b95\u0bcd\u0b95\u0bc1 \u0bae\u0bbf\u0b95\u0bb5\u0bc1\u0bae\u0bcd \u0bae\u0bc1\u0b95\u0bcd\u0b95\u0bbf\u0baf\u0bae\u0bcd. \u0bb5\u0bbf\u0bb0\u0bc8\u0bb5\u0bbf\u0bb2\u0bcd \u0ba4\u0b9f\u0bc8\u0baf\u0bb1\u0bcd\u0bb1 \u0b85\u0ba3\u0bc1\u0b95\u0bb2\u0bc8 \u0bae\u0bc0\u0b9f\u0bcd\u0b9f\u0bc6\u0b9f\u0bc1\u0b95\u0bcd\u0b95 \u0ba8\u0bbe\u0b99\u0bcd\u0b95\u0bb3\u0bcd \u0b89\u0bb1\u0bc1\u0ba4\u0bbf\u0baa\u0bc2\u0ba3\u0bcd\u0b9f\u0bc1\u0bb3\u0bcd\u0bb3\u0bcb\u0bae\u0bcd.',
+                    'sign-off-1': '\u0b85\u0ba9\u0bcd\u0baa\u0bc1\u0b9f\u0ba9\u0bcd,',
+                    'sign-off-2': '\u0b9a\u0ba8\u0bcd\u0ba4\u0bbf\u0baf\u0bbe \u0b87\u0ba9\u0bcd\u0baa\u0bcb\u0b9a\u0bbf\u0b9f\u0bcd\u0b9f\u0bbf \u00b7 \u0bb5\u0b9a\u0ba4\u0bbf \u0bae\u0bc7\u0bb2\u0bbe\u0ba3\u0bcd\u0bae\u0bc8',
+                    'footer': '\u0b9a\u0ba8\u0bcd\u0ba4\u0bbf\u0baf\u0bbe \u0b87\u0ba9\u0bcd\u0baa\u0bcb\u0b9a\u0bbf\u0b9f\u0bcd\u0b9f\u0bbf \u00b7 \u0bb5\u0b9a\u0ba4\u0bbf \u0bae\u0bc7\u0bb2\u0bbe\u0ba3\u0bcd\u0bae\u0bc8'
+                }
             };
 
-            function getDeviceInfo() {
-                var ua = navigator.userAgent;
-                var device = 'Desktop';
-                var os = 'Unknown';
-                var browser = 'Unknown';
+            function setLanguage(lang) {
+                var strings = STRINGS[lang];
+                if (!strings) return;
+                document.querySelectorAll('[data-i18n]').forEach(function (el) {
+                    var key = el.getAttribute('data-i18n');
+                    if (strings[key] !== undefined) el.textContent = strings[key];
+                });
+                document.documentElement.lang = lang;
+                document.querySelectorAll('.lang-btn').forEach(function (btn) {
+                    btn.setAttribute('aria-pressed', btn.getAttribute('data-lang') === lang ? 'true' : 'false');
+                });
+                try { localStorage.setItem('lang', lang); } catch (e) {}
+            }
 
+            try { var saved = localStorage.getItem('lang'); if (saved && STRINGS[saved]) setLanguage(saved); } catch (e) {}
+
+            document.querySelectorAll('.lang-btn').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    setLanguage(this.getAttribute('data-lang'));
+                    trackClick('lang_' + this.getAttribute('data-lang'));
+                });
+            });
+
+            var CONFIG = { GOOGLE_SCRIPT_URL: '', SITE_ID: 'itpark-backgate-guide' };
+
+            function getDeviceInfo() {
+                var ua = navigator.userAgent, device = 'Desktop', os = 'Unknown', browser = 'Unknown';
                 if (/Android/i.test(ua)) { device = 'Android'; os = 'Android'; }
                 else if (/iPhone|iPad|iPod/i.test(ua)) { device = /iPad/i.test(ua) ? 'iPad' : 'iPhone'; os = 'iOS'; }
-                else if (/Windows/i.test(ua)) { os = 'Windows'; }
-                else if (/Mac/i.test(ua)) { os = 'macOS'; }
-                else if (/Linux/i.test(ua)) { os = 'Linux'; }
-
-                if (/Chrome/i.test(ua) && !/Edg/i.test(ua)) { browser = 'Chrome'; }
-                else if (/Safari/i.test(ua) && !/Chrome/i.test(ua)) { browser = 'Safari'; }
-                else if (/Firefox/i.test(ua)) { browser = 'Firefox'; }
-                else if (/Edg/i.test(ua)) { browser = 'Edge'; }
-
-                return {
-                    device: device,
-                    os: os,
-                    browser: browser,
-                    screenWidth: window.screen.width,
-                    screenHeight: window.screen.height,
-                    language: navigator.language,
-                    timestamp: new Date().toISOString(),
-                    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
-                };
+                else if (/Windows/i.test(ua)) os = 'Windows';
+                else if (/Mac/i.test(ua)) os = 'macOS';
+                else if (/Linux/i.test(ua)) os = 'Linux';
+                if (/Chrome/i.test(ua) && !/Edg/i.test(ua)) browser = 'Chrome';
+                else if (/Safari/i.test(ua) && !/Chrome/i.test(ua)) browser = 'Safari';
+                else if (/Firefox/i.test(ua)) browser = 'Firefox';
+                else if (/Edg/i.test(ua)) browser = 'Edge';
+                return { device: device, os: os, browser: browser, screenWidth: window.screen.width, screenHeight: window.screen.height, language: navigator.language, timestamp: new Date().toISOString(), timezone: Intl.DateTimeFormat().resolvedOptions().timeZone };
             }
 
             function trackClick(action) {
-                var info = getDeviceInfo();
-                info.action = action;
-                info.siteId = CONFIG.SITE_ID;
-
-                if (CONFIG.GOOGLE_SCRIPT_URL) {
-                    fetch(CONFIG.GOOGLE_SCRIPT_URL, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(info)
-                    }).catch(function () {});
-                }
-
-                if (window.goatcounter) {
-                    window.goatcounter.count({ path: action, event: true });
-                }
+                var info = getDeviceInfo(); info.action = action; info.siteId = CONFIG.SITE_ID;
+                if (CONFIG.GOOGLE_SCRIPT_URL) { fetch(CONFIG.GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(info) }).catch(function () {}); }
+                if (window.goatcounter) { window.goatcounter.count({ path: action, event: true }); }
             }
 
-            // Event delegation
             document.addEventListener('click', function (e) {
                 var target = e.target.closest('[data-track]');
-                if (target) {
-                    trackClick(target.getAttribute('data-track'));
-                }
+                if (target) trackClick(target.getAttribute('data-track'));
             });
 
-            // Filter badges
             var cards = document.querySelectorAll('.entrance-card[data-category]');
             var badges = document.querySelectorAll('.filter-badge[data-filter]');
 
@@ -1028,27 +593,15 @@
                 badge.addEventListener('click', function () {
                     var filter = this.getAttribute('data-filter');
                     var wasActive = this.getAttribute('aria-pressed') === 'true';
-
-                    // Reset all badges
-                    badges.forEach(function (b) {
-                        b.setAttribute('aria-pressed', 'false');
-                    });
-
+                    badges.forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
                     if (wasActive) {
-                        // Deselect — show all
-                        cards.forEach(function (card) {
-                            card.removeAttribute('hidden');
-                        });
+                        cards.forEach(function (card) { card.removeAttribute('hidden'); });
                         trackClick('filter_all');
                     } else {
-                        // Select this filter
                         this.setAttribute('aria-pressed', 'true');
                         cards.forEach(function (card) {
-                            if (card.getAttribute('data-category') === filter) {
-                                card.removeAttribute('hidden');
-                            } else {
-                                card.setAttribute('hidden', '');
-                            }
+                            if (card.getAttribute('data-category') === filter) card.removeAttribute('hidden');
+                            else card.setAttribute('hidden', '');
                         });
                         trackClick('filter_' + filter);
                     }
