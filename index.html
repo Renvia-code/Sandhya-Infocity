@@ -3,595 +3,725 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Back Gate & Pedestrian Guide</title>
+    <meta name="description" content="Sandhya Infocity back gate entrance guide with directions, maps, and security contacts.">
+    <meta name="theme-color" content="#ffffff">
+    <title>Sandhya Infocity &ndash; Entrance Guide</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
-    
-    <!-- GoatCounter Analytics - FREE & Privacy-friendly -->
-    <!-- STEP: Replace 'YOUR_GOATCOUNTER_CODE' with your actual code after signup -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Analytics -->
     <script data-goatcounter="https://YOUR_GOATCOUNTER_CODE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-    
+
     <style>
+        /* =============================================
+           DESIGN TOKENS
+           ============================================= */
+
         :root {
-            --bg-primary: #0a0f1c;
-            --bg-card: #141b2d;
-            --bg-card-hover: #1a2340;
-            --accent-blue: #3b82f6;
-            --accent-green: #10b981;
-            --accent-orange: #f59e0b;
-            --accent-purple: #8b5cf6;
-            --accent-red: #ef4444;
-            --text-primary: #f1f5f9;
-            --text-secondary: #94a3b8;
-            --border-color: #1e293b;
+            --c-bg: #ffffff;
+            --c-text: #111827;
+            --c-text-secondary: #6b7280;
+            --c-text-muted: #9ca3af;
+            --c-border: #e5e7eb;
+            --c-surface: #f9fafb;
+            --c-accent: #2563eb;
+            --c-green: #059669;
+            --c-green-bg: #ecfdf5;
+            --c-wa: #16a34a;
+            --c-wa-bg: #f0fdf4;
+            --c-warm: #f59e0b;
+            --c-warm-bg: #fff7ed;
+            --r-card: 16px;
+            --r-btn: 10px;
         }
 
-        * {
+        /* =============================================
+           RESET & BASE
+           ============================================= */
+
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
         }
 
         body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--c-bg);
+            color: var(--c-text);
             min-height: 100vh;
-            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        .bg-pattern {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(ellipse at 20% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-                linear-gradient(180deg, var(--bg-primary) 0%, #0d1424 100%);
-            z-index: -1;
+        img {
+            display: block;
+            max-width: 100%;
         }
 
-        .container {
-            max-width: 420px;
-            margin: 0 auto;
-            padding: 20px 16px 40px;
-        }
-
-        .header {
-            text-align: center;
-            padding: 24px 0 32px;
-        }
-
-        .logo-mark {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 16px;
-            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
-        }
-
-        .logo-mark svg {
-            width: 28px;
-            height: 28px;
-            fill: white;
-        }
-
-        .header h1 {
-            font-family: 'Space Mono', monospace;
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 8px;
-            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .header p {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-        }
-
-        .section-title {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--text-secondary);
-            margin: 28px 0 12px;
-            padding-left: 4px;
-        }
-
-        .nav-card {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 18px 20px;
-            margin-bottom: 12px;
+        a {
             text-decoration: none;
             color: inherit;
-            transition: all 0.2s ease;
+        }
+
+        /* =============================================
+           LAYOUT
+           ============================================= */
+
+        .page {
+            max-width: 480px;
+            margin: 0 auto;
+            padding-bottom: 48px;
+        }
+
+        .content {
+            padding: 0 20px;
+        }
+
+        /* =============================================
+           HERO
+           ============================================= */
+
+        .hero {
             position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            max-height: 240px;
             overflow: hidden;
         }
 
-        .nav-card:active {
-            transform: scale(0.98);
-            background: var(--bg-card-hover);
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .nav-card::after {
+        .hero::after {
             content: '';
             position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 20px;
-            height: 20px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 5l7 7-7 7'/%3E%3C/svg%3E");
-            opacity: 0.5;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 72px;
+            background: linear-gradient(to top, var(--c-bg) 0%, transparent 100%);
+            pointer-events: none;
         }
 
-        .nav-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+        /* =============================================
+           HEADER
+           ============================================= */
+
+        .header {
+            text-align: center;
+            padding: 4px 24px 0;
+        }
+
+        .header-logo {
+            width: 44px;
+            height: 44px;
+            margin: 0 auto 10px;
+        }
+
+        .header-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .header h1 {
+            font-size: 21px;
+            font-weight: 700;
+            letter-spacing: -0.4px;
+            line-height: 1.2;
+        }
+
+        .header .subtitle {
+            font-size: 14px;
+            color: var(--c-text-secondary);
+            margin-top: 6px;
+            line-height: 1.5;
+        }
+
+        /* =============================================
+           SECTION LABELS
+           ============================================= */
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--c-text-muted);
+            margin: 32px 0 14px;
+            padding-left: 2px;
+        }
+
+        /* =============================================
+           ENTRANCE CARDS
+           ============================================= */
+
+        .entrance-card {
+            display: block;
+            background: var(--c-bg);
+            border: 1px solid var(--c-border);
+            border-radius: var(--r-card);
+            overflow: hidden;
+            margin-bottom: 14px;
+            transition: transform 0.12s ease, box-shadow 0.12s ease;
+        }
+
+        .entrance-card:active {
+            transform: scale(0.98);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+        }
+
+        .entrance-card-image {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 2.4 / 1;
+            overflow: hidden;
+            background: #f3f4f6;
+        }
+
+        .entrance-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--c-text);
+        }
+
+        .entrance-card-body {
+            padding: 14px 16px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .entrance-card-info h3 {
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 2px;
+        }
+
+        .entrance-card-info p {
+            font-size: 13px;
+            color: var(--c-text-secondary);
+        }
+
+        .card-cta {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--c-accent);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .card-cta svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* =============================================
+           CONTACT CARDS
+           ============================================= */
+
+        .contact-card {
+            background: var(--c-bg);
+            border: 1px solid var(--c-border);
+            border-radius: 14px;
+            padding: 16px;
+            margin-bottom: 10px;
+        }
+
+        .contact-top {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .contact-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #f3f4f6;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
         }
 
-        .nav-icon svg {
-            width: 24px;
-            height: 24px;
-        }
-
-        .nav-icon.blue { background: rgba(59, 130, 246, 0.15); }
-        .nav-icon.blue svg { stroke: var(--accent-blue); }
-
-        .nav-icon.green { background: rgba(16, 185, 129, 0.15); }
-        .nav-icon.green svg { stroke: var(--accent-green); }
-
-        .nav-icon.orange { background: rgba(245, 158, 11, 0.15); }
-        .nav-icon.orange svg { stroke: var(--accent-orange); }
-
-        .nav-icon.purple { background: rgba(139, 92, 246, 0.15); }
-        .nav-icon.purple svg { stroke: var(--accent-purple); }
-
-        .nav-content {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .nav-title {
-            font-weight: 600;
-            font-size: 1rem;
-            margin-bottom: 2px;
-        }
-
-        .nav-subtitle {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
-
-        .contact-grid {
-            display: grid;
-            gap: 12px;
-        }
-
-        .contact-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 16px 18px;
+        .contact-avatar svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--c-text-muted);
+            fill: none;
         }
 
         .contact-name {
+            font-size: 15px;
             font-weight: 600;
-            font-size: 0.95rem;
-            margin-bottom: 4px;
+            line-height: 1.3;
         }
 
         .contact-role {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            margin-bottom: 12px;
+            font-size: 12px;
+            color: var(--c-text-muted);
+            margin-top: 1px;
         }
 
         .contact-actions {
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }
 
-        .contact-btn {
+        /* =============================================
+           BUTTONS
+           ============================================= */
+
+        .btn {
             flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
-            padding: 10px 12px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-size: 0.8rem;
+            gap: 7px;
+            padding: 10px 14px;
+            border-radius: var(--r-btn);
+            font-size: 13px;
             font-weight: 500;
-            transition: all 0.2s ease;
+            font-family: inherit;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.1s ease;
         }
 
-        .contact-btn:active {
+        .btn:active {
             transform: scale(0.96);
         }
 
-        .contact-btn svg {
+        .btn svg {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+        }
+
+        .btn-call {
+            background: var(--c-green-bg);
+            color: var(--c-green);
+        }
+
+        .btn-call svg {
+            stroke: var(--c-green);
+            fill: none;
+        }
+
+        .btn-wa {
+            background: var(--c-wa-bg);
+            color: var(--c-wa);
+        }
+
+        .btn-wa svg {
+            fill: var(--c-wa);
+            stroke: none;
+        }
+
+        /* =============================================
+           NOTICE
+           ============================================= */
+
+        .notice {
+            margin-top: 32px;
+            padding: 22px 20px;
+            background: var(--c-surface);
+            border-radius: 14px;
+        }
+
+        .notice-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--c-warm-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 14px;
+        }
+
+        .notice-icon svg {
             width: 16px;
             height: 16px;
         }
 
-        .btn-call {
-            background: rgba(16, 185, 129, 0.15);
-            color: var(--accent-green);
+        .notice p {
+            font-size: 13.5px;
+            color: #4b5563;
+            line-height: 1.72;
         }
-        .btn-call svg { stroke: var(--accent-green); }
 
-        .btn-whatsapp {
-            background: rgba(37, 211, 102, 0.15);
-            color: #25d366;
+        .notice p + p {
+            margin-top: 10px;
         }
-        .btn-whatsapp svg { fill: #25d366; }
+
+        .notice .sign-off {
+            margin-top: 16px;
+            padding-top: 14px;
+            border-top: 1px solid var(--c-border);
+            font-size: 12px;
+            color: var(--c-text-muted);
+            line-height: 1.6;
+        }
+
+        /* =============================================
+           FOOTER
+           ============================================= */
 
         .footer {
             text-align: center;
-            padding: 32px 0 16px;
-            color: var(--text-secondary);
-            font-size: 0.75rem;
+            padding: 32px 20px 8px;
         }
 
         .footer-logo {
-            font-family: 'Space Mono', monospace;
-            font-weight: 700;
-            font-size: 0.875rem;
-            color: var(--text-primary);
-            opacity: 0.5;
-            margin-bottom: 4px;
+            width: 28px;
+            height: 28px;
+            margin: 0 auto 6px;
+            opacity: 0.3;
         }
 
-        @keyframes pulse-ring {
-            0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
-            70% { box-shadow: 0 0 0 8px rgba(59, 130, 246, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+        .footer-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
-        .nav-card:first-of-type {
-            animation: pulse-ring 2s ease infinite;
+        .footer-text {
+            font-size: 11px;
+            color: #d1d5db;
+            letter-spacing: 0.2px;
         }
 
-        /* Live visitor counter badge */
-        .visitor-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            color: var(--accent-green);
-            margin-top: 12px;
+        /* =============================================
+           ACCESSIBILITY & SAFE AREA
+           ============================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+            .entrance-card,
+            .btn {
+                transition: none;
+            }
         }
 
-        .visitor-badge .dot {
-            width: 6px;
-            height: 6px;
-            background: var(--accent-green);
-            border-radius: 50%;
-            animation: blink 1.5s ease-in-out infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
-
-        /* Device info toast */
-        .device-toast {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 10px 16px;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            color: var(--text-secondary);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 1000;
-            max-width: 90%;
-            text-align: center;
-        }
-
-        .device-toast.show {
-            opacity: 1;
+        @supports (padding-bottom: env(safe-area-inset-bottom)) {
+            .page {
+                padding-bottom: calc(48px + env(safe-area-inset-bottom));
+            }
         }
     </style>
 </head>
 <body>
-    <div class="bg-pattern"></div>
-    
-    <div class="container">
-        <header class="header">
-            <div class="logo-mark">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="white"/>
-                    <path d="M2 17L12 22L22 17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M2 12L12 17L22 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </div>
-            <h1>BACK GATE GUIDE</h1>
-            <p>Quick navigation to all entrances</p>
-            <div class="visitor-badge">
-                <span class="dot"></span>
-                <span id="visitorCount">Loading...</span>
-            </div>
-        </header>
+    <div class="page">
 
-        <div class="section-title">🚗 Vehicular Entrances</div>
-
-        <!-- BACK ENTRANCE 1 - Block 4 Side -->
-        <a href="https://www.google.com/maps/dir/?api=1&destination=12.852392,80.224223&travelmode=driving" 
-           class="nav-card" 
-           onclick="trackClick('entrance1')"
-           id="entrance1">
-            <div class="nav-icon blue">
-                <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
-                </svg>
-            </div>
-            <div class="nav-content">
-                <div class="nav-title">Back Entrance 1</div>
-                <div class="nav-subtitle">Block 4 Side • Opens in Maps</div>
-            </div>
-        </a>
-
-        <!-- BACK ENTRANCE 2 -->
-        <a href="https://www.google.com/maps/dir/?api=1&destination=12.847699,80.223052&travelmode=driving" 
-           class="nav-card"
-           onclick="trackClick('entrance2')"
-           id="entrance2">
-            <div class="nav-icon green">
-                <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
-                </svg>
-            </div>
-            <div class="nav-content">
-                <div class="nav-title">Back Entrance 2</div>
-                <div class="nav-subtitle">Alternate Route • Opens in Maps</div>
-            </div>
-        </a>
-
-        <div class="section-title">🚶 Pedestrian Access</div>
-
-        <!-- PEDESTRIAN - Using Entrance 2 location, update if different -->
-        <a href="https://www.google.com/maps/dir/?api=1&destination=12.847699,80.223052&travelmode=walking" 
-           class="nav-card"
-           onclick="trackClick('pedestrian')"
-           id="pedestrian">
-            <div class="nav-icon orange">
-                <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
-                </svg>
-            </div>
-            <div class="nav-content">
-                <div class="nav-title">Pedestrian Gate</div>
-                <div class="nav-subtitle">Walking route • Opens in Maps</div>
-            </div>
-        </a>
-
-        <div class="section-title">📞 Security Helpdesk</div>
-
-        <div class="contact-grid">
-            <!-- Abdul - Security Head -->
-            <div class="contact-card">
-                <div class="contact-name">Abdul</div>
-                <div class="contact-role">Security Head</div>
-                <div class="contact-actions">
-                    <a href="tel:+919841172866" class="contact-btn btn-call" onclick="trackClick('call_abdul')">
-                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
-                        </svg>
-                        Call
-                    </a>
-                    <a href="https://wa.me/919841172866" class="contact-btn btn-whatsapp" onclick="trackClick('wa_abdul')">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                        </svg>
-                        WhatsApp
-                    </a>
-                </div>
-            </div>
-
-            <!-- Akaram -->
-            <div class="contact-card">
-                <div class="contact-name">Akaram</div>
-                <div class="contact-role">Gate Supervisor</div>
-                <div class="contact-actions">
-                    <a href="tel:+919176641559" class="contact-btn btn-call" onclick="trackClick('call_akaram')">
-                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
-                        </svg>
-                        Call
-                    </a>
-                    <a href="https://wa.me/919176641559" class="contact-btn btn-whatsapp" onclick="trackClick('wa_akaram')">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                        </svg>
-                        WhatsApp
-                    </a>
-                </div>
-            </div>
-
-            <!-- Dinesh -->
-            <div class="contact-card">
-                <div class="contact-name">Dinesh</div>
-                <div class="contact-role">24/7 Helpdesk</div>
-                <div class="contact-actions">
-                    <a href="tel:+917729880644" class="contact-btn btn-call" onclick="trackClick('call_dinesh')">
-                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
-                        </svg>
-                        Call
-                    </a>
-                    <a href="https://wa.me/917729880644" class="contact-btn btn-whatsapp" onclick="trackClick('wa_dinesh')">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                        </svg>
-                        WhatsApp
-                    </a>
-                </div>
-            </div>
+        <!-- Hero -->
+        <div class="hero">
+            <img src="entrance-photo.png"
+                 alt="Sandhya Infocity main entrance"
+                 loading="eager"
+                 fetchpriority="high">
         </div>
 
+        <!-- Header -->
+        <header class="header">
+            <div class="header-logo">
+                <img src="sandhya-infocity.png" alt="Sandhya Infocity" width="44" height="44">
+            </div>
+            <h1>Back Gate Guide</h1>
+            <p class="subtitle">Main gate renovation in progress.<br>Navigate to the nearest entrance.</p>
+        </header>
+
+        <!-- Directions -->
+        <main class="content">
+
+            <div class="section-label">Directions</div>
+
+            <a href="https://www.google.com/maps/dir/?api=1&destination=12.852392,80.224223&travelmode=driving"
+               class="entrance-card"
+               data-track="entrance1"
+               rel="noopener noreferrer">
+                <div class="entrance-card-image">
+                    <img src="back-entrance-1.jpg"
+                         alt="Road approaching Back Entrance 1, Block 4 side"
+                         loading="eager"
+                         width="600" height="250">
+                    <span class="card-badge">Entrance 1</span>
+                </div>
+                <div class="entrance-card-body">
+                    <div class="entrance-card-info">
+                        <h3>Back Entrance 1</h3>
+                        <p>Block 4 Side</p>
+                    </div>
+                    <span class="card-cta">
+                        Maps
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+                    </span>
+                </div>
+            </a>
+
+            <a href="https://www.google.com/maps/dir/?api=1&destination=12.847699,80.223052&travelmode=driving"
+               class="entrance-card"
+               data-track="entrance2"
+               rel="noopener noreferrer">
+                <div class="entrance-card-image">
+                    <img src="back-entrance-2.png"
+                         alt="Back Entrance 2 gate, alternate route"
+                         loading="lazy"
+                         width="600" height="250">
+                    <span class="card-badge">Entrance 2</span>
+                </div>
+                <div class="entrance-card-body">
+                    <div class="entrance-card-info">
+                        <h3>Back Entrance 2</h3>
+                        <p>Alternate Route</p>
+                    </div>
+                    <span class="card-cta">
+                        Maps
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+                    </span>
+                </div>
+            </a>
+
+            <a href="https://www.google.com/maps/dir/?api=1&destination=12.850022,80.226467&travelmode=driving"
+               class="entrance-card"
+               data-track="vehicle_pickup"
+               rel="noopener noreferrer">
+                <div class="entrance-card-image">
+                    <img src="Van-photo.png"
+                         alt="Vehicle pickup point with shuttle service"
+                         loading="lazy"
+                         width="600" height="250">
+                    <span class="card-badge">Vehicle Pickup</span>
+                </div>
+                <div class="entrance-card-body">
+                    <div class="entrance-card-info">
+                        <h3>Vehicle Pickup</h3>
+                        <p>Shuttle Drop-off Point</p>
+                    </div>
+                    <span class="card-cta">
+                        Maps
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+                    </span>
+                </div>
+            </a>
+
+            <a href="https://www.google.com/maps/dir/?api=1&destination=12.852392,80.224223&travelmode=walking"
+               class="entrance-card"
+               data-track="pedestrian_walk"
+               rel="noopener noreferrer">
+                <div class="entrance-card-image">
+                    <img src="back-entrance-1.jpg"
+                         alt="Pedestrian walking path to back entrance"
+                         loading="lazy"
+                         width="600" height="250">
+                    <span class="card-badge">Walking Path</span>
+                </div>
+                <div class="entrance-card-body">
+                    <div class="entrance-card-info">
+                        <h3>Pedestrian Walking Path</h3>
+                        <p>550m from entrance &middot; ~8 min walk</p>
+                    </div>
+                    <span class="card-cta">
+                        Maps
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+                    </span>
+                </div>
+            </a>
+
+            <!-- Contacts -->
+            <div class="section-label">Need Help?</div>
+
+            <div class="contact-card">
+                <div class="contact-top">
+                    <div class="contact-avatar">
+                        <svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+                    </div>
+                    <div>
+                        <div class="contact-name">Abdul</div>
+                        <div class="contact-role">Security Head</div>
+                    </div>
+                </div>
+                <div class="contact-actions">
+                    <a href="tel:+919841172866" class="btn btn-call" data-track="call_abdul">
+                        <svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+                        Call
+                    </a>
+                    <a href="https://wa.me/919841172866" class="btn btn-wa" data-track="wa_abdul" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-top">
+                    <div class="contact-avatar">
+                        <svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+                    </div>
+                    <div>
+                        <div class="contact-name">Akaram</div>
+                        <div class="contact-role">Gate Supervisor</div>
+                    </div>
+                </div>
+                <div class="contact-actions">
+                    <a href="tel:+919176641559" class="btn btn-call" data-track="call_akaram">
+                        <svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+                        Call
+                    </a>
+                    <a href="https://wa.me/919176641559" class="btn btn-wa" data-track="wa_akaram" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-top">
+                    <div class="contact-avatar">
+                        <svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+                    </div>
+                    <div>
+                        <div class="contact-name">Dinesh</div>
+                        <div class="contact-role">24/7 Helpdesk</div>
+                    </div>
+                </div>
+                <div class="contact-actions">
+                    <a href="tel:+917729880644" class="btn btn-call" data-track="call_dinesh">
+                        <svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+                        Call
+                    </a>
+                    <a href="https://wa.me/917729880644" class="btn btn-wa" data-track="wa_dinesh" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Notice -->
+            <div class="notice">
+                <div class="notice-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg>
+                </div>
+                <p>We sincerely apologize for any inconvenience caused by the temporary changes to entrance access. This guide has been created to help you reach the campus as smoothly as possible.</p>
+                <p>Your patience and understanding mean a great deal to us. We are committed to restoring seamless access at the earliest.</p>
+                <div class="sign-off">
+                    Warm regards,<br>
+                    Sandhya Infocity &middot; Facility Management
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Footer -->
         <footer class="footer">
-            <div class="footer-logo">IT PARK</div>
-            <p>Facility Management</p>
+            <div class="footer-logo">
+                <img src="sandhya-infocity.png" alt="" width="28" height="28">
+            </div>
+            <div class="footer-text">Sandhya Infocity &middot; Facility Management</div>
         </footer>
+
     </div>
 
-    <!-- Device info toast -->
-    <div class="device-toast" id="deviceToast"></div>
-
     <script>
-        // ==========================================
-        // ANALYTICS & DEVICE TRACKING SYSTEM
-        // ==========================================
-        
-        // Configuration - UPDATE THESE VALUES
-        const CONFIG = {
-            // Your Google Apps Script Web App URL (for detailed analytics)
-            // Leave empty to disable Google Sheets logging
-            GOOGLE_SCRIPT_URL: '',
-            
-            // Show device info toast on page load
-            SHOW_DEVICE_TOAST: false,
-            
-            // Site identifier for analytics
-            SITE_ID: 'itpark-backgate-guide'
-        };
+        (function () {
+            'use strict';
 
-        // Get device information
-        function getDeviceInfo() {
-            const ua = navigator.userAgent;
-            let device = 'Desktop';
-            let os = 'Unknown';
-            let browser = 'Unknown';
-
-            // Detect device type
-            if (/Android/i.test(ua)) {
-                device = 'Android';
-                os = 'Android';
-            } else if (/iPhone|iPad|iPod/i.test(ua)) {
-                device = /iPad/i.test(ua) ? 'iPad' : 'iPhone';
-                os = 'iOS';
-            } else if (/Windows/i.test(ua)) {
-                os = 'Windows';
-            } else if (/Mac/i.test(ua)) {
-                os = 'macOS';
-            } else if (/Linux/i.test(ua)) {
-                os = 'Linux';
-            }
-
-            // Detect browser
-            if (/Chrome/i.test(ua) && !/Edg/i.test(ua)) {
-                browser = 'Chrome';
-            } else if (/Safari/i.test(ua) && !/Chrome/i.test(ua)) {
-                browser = 'Safari';
-            } else if (/Firefox/i.test(ua)) {
-                browser = 'Firefox';
-            } else if (/Edg/i.test(ua)) {
-                browser = 'Edge';
-            }
-
-            return {
-                device,
-                os,
-                browser,
-                screenWidth: window.screen.width,
-                screenHeight: window.screen.height,
-                language: navigator.language,
-                timestamp: new Date().toISOString(),
-                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+            var CONFIG = {
+                GOOGLE_SCRIPT_URL: '',
+                SITE_ID: 'itpark-backgate-guide'
             };
-        }
 
-        // Track clicks on buttons
-        function trackClick(action) {
-            const info = getDeviceInfo();
-            info.action = action;
-            info.siteId = CONFIG.SITE_ID;
+            function getDeviceInfo() {
+                var ua = navigator.userAgent;
+                var device = 'Desktop';
+                var os = 'Unknown';
+                var browser = 'Unknown';
 
-            // Log to console for debugging
-            console.log('Track:', action, info);
+                if (/Android/i.test(ua)) { device = 'Android'; os = 'Android'; }
+                else if (/iPhone|iPad|iPod/i.test(ua)) { device = /iPad/i.test(ua) ? 'iPad' : 'iPhone'; os = 'iOS'; }
+                else if (/Windows/i.test(ua)) { os = 'Windows'; }
+                else if (/Mac/i.test(ua)) { os = 'macOS'; }
+                else if (/Linux/i.test(ua)) { os = 'Linux'; }
 
-            // Send to Google Sheets if configured
-            if (CONFIG.GOOGLE_SCRIPT_URL) {
-                fetch(CONFIG.GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(info)
-                }).catch(err => console.log('Analytics error:', err));
+                if (/Chrome/i.test(ua) && !/Edg/i.test(ua)) { browser = 'Chrome'; }
+                else if (/Safari/i.test(ua) && !/Chrome/i.test(ua)) { browser = 'Safari'; }
+                else if (/Firefox/i.test(ua)) { browser = 'Firefox'; }
+                else if (/Edg/i.test(ua)) { browser = 'Edge'; }
+
+                return {
+                    device: device,
+                    os: os,
+                    browser: browser,
+                    screenWidth: window.screen.width,
+                    screenHeight: window.screen.height,
+                    language: navigator.language,
+                    timestamp: new Date().toISOString(),
+                    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+                };
             }
 
-            // GoatCounter event tracking
-            if (window.goatcounter) {
-                window.goatcounter.count({
-                    path: action,
-                    event: true
-                });
+            function trackClick(action) {
+                var info = getDeviceInfo();
+                info.action = action;
+                info.siteId = CONFIG.SITE_ID;
+
+                if (CONFIG.GOOGLE_SCRIPT_URL) {
+                    fetch(CONFIG.GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(info)
+                    }).catch(function () {});
+                }
+
+                if (window.goatcounter) {
+                    window.goatcounter.count({ path: action, event: true });
+                }
             }
-        }
 
-        // Show device toast
-        function showDeviceToast() {
-            if (!CONFIG.SHOW_DEVICE_TOAST) return;
-            
-            const info = getDeviceInfo();
-            const toast = document.getElementById('deviceToast');
-            toast.textContent = `${info.device} • ${info.browser} • ${info.screenWidth}x${info.screenHeight}`;
-            toast.classList.add('show');
-            
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
-        }
+            // Event delegation — no inline handlers needed
+            document.addEventListener('click', function (e) {
+                var target = e.target.closest('[data-track]');
+                if (target) {
+                    trackClick(target.getAttribute('data-track'));
+                }
+            });
 
-        // Update visitor count display
-        function updateVisitorCount() {
-            const countEl = document.getElementById('visitorCount');
-            // This will be updated by GoatCounter or can show a static message
-            countEl.textContent = 'Live Guide';
-        }
-
-        // Page load tracking
-        window.addEventListener('load', function() {
             trackClick('page_view');
-            showDeviceToast();
-            updateVisitorCount();
-        });
+        })();
     </script>
 </body>
 </html>
