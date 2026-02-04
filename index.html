@@ -179,9 +179,15 @@
             transition: transform 0.12s ease, box-shadow 0.12s ease;
         }
 
-        .entrance-card:active {
+        a.entrance-card:active {
             transform: scale(0.98);
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+        }
+
+        .entrance-card-link {
+            display: block;
+            color: inherit;
+            text-decoration: none;
         }
 
         .entrance-card-image {
@@ -427,12 +433,113 @@
         }
 
         /* =============================================
+           EXPANDABLE SHUTTLE PANEL
+           ============================================= */
+
+        .shuttle-details {
+            border-top: 1px solid var(--c-border);
+        }
+
+        .expand-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 12px 16px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--c-accent);
+            cursor: pointer;
+            list-style: none;
+            font-family: inherit;
+        }
+
+        .expand-toggle::-webkit-details-marker {
+            display: none;
+        }
+
+        .expand-toggle svg {
+            width: 14px;
+            height: 14px;
+            transition: transform 0.2s ease;
+        }
+
+        details[open] > .expand-toggle svg {
+            transform: rotate(180deg);
+        }
+
+        .shuttle-panel {
+            padding: 0 16px 18px;
+        }
+
+        .shuttle-provider {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--c-text);
+            margin-bottom: 2px;
+        }
+
+        .shuttle-desc {
+            font-size: 12px;
+            color: var(--c-text-muted);
+            margin-bottom: 14px;
+        }
+
+        .driver-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .driver-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .plate {
+            padding: 5px 8px;
+            background: var(--c-bg);
+            border: 2px solid #1f2937;
+            border-radius: 4px;
+            font-family: 'SF Mono', 'Menlo', 'Consolas', 'Courier New', monospace;
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            color: #111827;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .driver-name {
+            flex: 1;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--c-text);
+            min-width: 0;
+        }
+
+        .btn-sm {
+            flex: none;
+            padding: 7px 12px;
+            font-size: 12px;
+            gap: 5px;
+        }
+
+        .btn-sm svg {
+            width: 13px;
+            height: 13px;
+        }
+
+        /* =============================================
            ACCESSIBILITY & SAFE AREA
            ============================================= */
 
         @media (prefers-reduced-motion: reduce) {
             .entrance-card,
-            .btn {
+            .btn,
+            .expand-toggle svg {
                 transition: none;
             }
         }
@@ -483,7 +590,7 @@
                 <div class="entrance-card-body">
                     <div class="entrance-card-info">
                         <h3>Back Entrance 1</h3>
-                        <p>Block 4 Side</p>
+                        <p>Block 4 Side &middot; Road by Geetham Restaurant</p>
                     </div>
                     <span class="card-cta">
                         Maps
@@ -506,7 +613,7 @@
                 <div class="entrance-card-body">
                     <div class="entrance-card-info">
                         <h3>Back Entrance 2</h3>
-                        <p>Alternate Route</p>
+                        <p>Alternate Route &middot; Ahead of Mount Litera Zee School</p>
                     </div>
                     <span class="card-cta">
                         Maps
@@ -515,51 +622,123 @@
                 </div>
             </a>
 
-            <a href="https://www.google.com/maps/dir/?api=1&destination=12.850022,80.226467&travelmode=driving"
-               class="entrance-card"
-               data-track="vehicle_pickup"
-               rel="noopener noreferrer">
-                <div class="entrance-card-image">
-                    <img src="Van-photo.png"
-                         alt="Vehicle pickup point with shuttle service"
-                         loading="lazy"
-                         width="600" height="250">
-                    <span class="card-badge">Vehicle Pickup</span>
-                </div>
-                <div class="entrance-card-body">
-                    <div class="entrance-card-info">
-                        <h3>Vehicle Pickup</h3>
-                        <p>Shuttle Drop-off Point</p>
+            <div class="entrance-card">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=12.850022,80.226467&travelmode=driving"
+                   class="entrance-card-link"
+                   data-track="vehicle_pickup"
+                   rel="noopener noreferrer">
+                    <div class="entrance-card-image">
+                        <img src="Van-photo.png"
+                             alt="Vehicle pickup point with shuttle service"
+                             loading="lazy"
+                             width="600" height="250">
+                        <span class="card-badge">Vehicle Pickup</span>
                     </div>
-                    <span class="card-cta">
-                        Maps
-                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
-                    </span>
-                </div>
-            </a>
+                    <div class="entrance-card-body">
+                        <div class="entrance-card-info">
+                            <h3>Vehicle Pickup</h3>
+                            <p>Shuttle Drop-off Point</p>
+                        </div>
+                        <span class="card-cta">
+                            Maps
+                            <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+                        </span>
+                    </div>
+                </a>
+                <details class="shuttle-details">
+                    <summary class="expand-toggle" data-track="expand_shuttle">
+                        <span>View shuttle details</span>
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+                    </summary>
+                    <div class="shuttle-panel">
+                        <div class="shuttle-provider">Cosmo Cabs</div>
+                        <div class="shuttle-desc">3 Tempo vehicles &middot; 18+1 seater</div>
+                        <div class="driver-row">
+                            <span class="plate">TN 21 BE 5757</span>
+                            <span class="driver-name">Ashok</span>
+                            <a href="tel:+919551532020" class="btn btn-call btn-sm" data-track="call_ashok">
+                                <svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+                                Call
+                            </a>
+                        </div>
+                        <div class="driver-row">
+                            <span class="plate">TN 14 AK 2857</span>
+                            <span class="driver-name">Siva</span>
+                            <a href="tel:+916385609616" class="btn btn-call btn-sm" data-track="call_siva">
+                                <svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+                                Call
+                            </a>
+                        </div>
+                        <div class="driver-row">
+                            <span class="plate">TN 07 DJ 5011</span>
+                            <span class="driver-name">Vijay</span>
+                            <a href="tel:+918667783223" class="btn btn-call btn-sm" data-track="call_vijay">
+                                <svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+                                Call
+                            </a>
+                        </div>
+                    </div>
+                </details>
+            </div>
 
-            <a href="https://www.google.com/maps/dir/?api=1&destination=12.852392,80.224223&travelmode=walking"
-               class="entrance-card"
-               data-track="pedestrian_walk"
-               rel="noopener noreferrer">
-                <div class="entrance-card-image">
-                    <img src="back-entrance-1.jpg"
-                         alt="Pedestrian walking path to back entrance"
-                         loading="lazy"
-                         width="600" height="250">
-                    <span class="card-badge">Walking Path</span>
-                </div>
-                <div class="entrance-card-body">
-                    <div class="entrance-card-info">
-                        <h3>Pedestrian Walking Path</h3>
-                        <p>550m from entrance &middot; ~8 min walk</p>
+            <div class="entrance-card">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=12.852392,80.224223&travelmode=walking"
+                   class="entrance-card-link"
+                   data-track="pedestrian_walk"
+                   rel="noopener noreferrer">
+                    <div class="entrance-card-image">
+                        <img src="back-entrance-1.jpg"
+                             alt="Pedestrian walking path to back entrance"
+                             loading="lazy"
+                             width="600" height="250">
+                        <span class="card-badge">Walking Path</span>
                     </div>
-                    <span class="card-cta">
-                        Maps
-                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
-                    </span>
-                </div>
-            </a>
+                    <div class="entrance-card-body">
+                        <div class="entrance-card-info">
+                            <h3>Pedestrian Walking Path</h3>
+                            <p>550m from entrance &middot; ~8 min walk</p>
+                        </div>
+                        <span class="card-cta">
+                            Maps
+                            <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+                        </span>
+                    </div>
+                </a>
+                <details class="shuttle-details">
+                    <summary class="expand-toggle" data-track="expand_pedestrian">
+                        <span>View shuttle details</span>
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+                    </summary>
+                    <div class="shuttle-panel">
+                        <div class="shuttle-provider">Cosmo Cabs</div>
+                        <div class="shuttle-desc">3 Tempo vehicles &middot; 18+1 seater</div>
+                        <div class="driver-row">
+                            <span class="plate">TN 21 BE 5757</span>
+                            <span class="driver-name">Ashok</span>
+                            <a href="tel:+919551532020" class="btn btn-call btn-sm" data-track="call_ashok">
+                                <svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+                                Call
+                            </a>
+                        </div>
+                        <div class="driver-row">
+                            <span class="plate">TN 14 AK 2857</span>
+                            <span class="driver-name">Siva</span>
+                            <a href="tel:+916385609616" class="btn btn-call btn-sm" data-track="call_siva">
+                                <svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+                                Call
+                            </a>
+                        </div>
+                        <div class="driver-row">
+                            <span class="plate">TN 07 DJ 5011</span>
+                            <span class="driver-name">Vijay</span>
+                            <a href="tel:+918667783223" class="btn btn-call btn-sm" data-track="call_vijay">
+                                <svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+                                Call
+                            </a>
+                        </div>
+                    </div>
+                </details>
+            </div>
 
             <!-- Contacts -->
             <div class="section-label">Need Help?</div>
